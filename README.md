@@ -1,46 +1,70 @@
+# Getting Started with Create React App
 
-                                       Project Name
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-SettleOut - The Newcomer’s Navigator
+## Available Scripts
 
-Om D., Sanjida N., Kartik P., Shivam P., Yug S.
+In the project directory, you can run:
 
-18th January 2023
+### `npm start`
 
-                                    Problem Description:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The problem of adjustment and integration for international students moving to a new city or country is a significant concern. The process of settling into a new environment can be challenging as they must navigate unfamiliar cultural norms, language barriers, and bureaucratic procedures. Furthermore, students may face difficulties in finding appropriate housing,
-employment, and other essential resources, which can negatively impact their ability to establish a sense of security and stability. These challenges can lead to feelings of isolation and anxiety, which can negatively impact academic performance and overall well-being. Our project, ”SettleOut: The Newcomer’s
-Navigator” aims to address these issues by providing support and
-resources to international students as they navigate the challenges of settling into a new environment. Our platform allows students to search for and connect with alumni and current students who serve as agents to provide guidance and support in navigating the challenges of adjusting to a new
-culture, finding housing, transportation, and other practical needs. Additionally, the website will provide resources and information to help students prepare for their move, such as information on visa requirements, cost of living, and cultural customs.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-                                      Team Members:
-• Om Dalwadi (200438406)
+### `npm test`
 
-• Sanjida Parvin Nishath (200419738)
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-• Shivam Patel (200422544)
+### `npm run build`
 
-• Kartik Patel (200470034)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-• Yug Shah (200448008)
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-                                       Conclusion:
-SettleOut is a unique and innovative platform that addresses a significant need for international students. With the development of a user-friendly website, a database of agents, and resources and information to assist students in their transition, SettleOut is poised to make a significant impact
-on the international student community. We look forward to the successful launch and implementation of this project.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-                                     Technology Used
+### `npm run eject`
 
-Bootstrap, Blender, TypeScript, NextJs, ThreeJs, React Three(will be added as we buid the product)
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-                            Instructions for Setup (Windows User)
-1) Install Node on your system from here https://nodejs.org/en/download/
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2) Clone this github repo: https://github.com/OmDalwadi/SettleOut.git
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-3) Open the terminal and navigate to the "SettleOut" folder.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-4) Run npm install command to install dependencies and npm run dev command to run the web-app
+## Learn More
 
-5) Open Google Chrome browser and visit http://localhost:3000
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

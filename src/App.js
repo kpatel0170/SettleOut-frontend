@@ -3,6 +3,7 @@ import Login from "./components/Login";
 //import Signup from "./components/Signup";
 import { Route } from 'react-router-dom';
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import './App.css';
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     
 
     // So in general please uncomment the particular page that you are working on so that it reflects when you do npm start
-
+        <About />
       //  <Login />
        //<Signup />  // Uncomment this and comment the login so that you can see signup page
       //  <Navbar />

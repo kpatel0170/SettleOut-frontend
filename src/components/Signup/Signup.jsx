@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './Signup.css'
+import GoogleLogin from "react-google-login";
 const Signup = () => {
   // Use the useState hook to create "username", "email", "password", and "confirmPassword" state variables
   const [username, setUsername] = useState('');
+  const [date, setdate] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -50,7 +52,7 @@ const Signup = () => {
   };
 
       
-
+ 
 
 
   // Create a function to handle the form submission
@@ -67,46 +69,72 @@ const Signup = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="signup-form">
-    <h1>SIGNUP</h1>
-    <label htmlFor="username" className="signup-label">Username:</label>
-    <input
+
+    <>
+    <div className="container">
+    <main className="signup-container">  
+    <h1 className="heading-primary">Create new account<span className="custom-dot">.</span></h1>
+    <p className="text-mute">Already A Member? <a href="$">Log in</a></p>
+      <form onSubmit={handleSubmit} className="signup-form">
+      <label htmlFor="username" className="signup-label">User Name:</label>
+      <input
         type="text"
         name="username"
         value={username}
         onChange={event => setUsername(event.target.value)}
         className="signup-input"
-    />
-    {errors.username && <div className="signup-error">{errors.username}</div>}
-    <label htmlFor="email" className="signup-label">Email:</label>
-    <input
+     />
+      {errors.username && <div className="signup-error">{errors.username}</div>}
+
+      <label htmlFor="email" className="signup-label">Email Address:</label>
+      <input
         type="email"
         name="email"
         value={email}
         onChange={event => setEmail(event.target.value)}
+        className="signup-input" />
+      {errors.email && <div className="signup-error">{errors.email}</div>}
+
+       {/* ####################################################################################################################### 
+       need to change the date value for date of birth  */}
+      <label htmlFor="dateofbirth" className="signup-label">Date of Birth:</label>
+      <input
+        type="date"
+        name="date"
+        onChange={event => setdate(event.target.value)}
         className="signup-input"
-    />
-    {errors.email && <div className="signup-error">{errors.email}</div>}
-    <label htmlFor="password" className="signup-label">Password:</label>
-    <input
+        label= "Date"/>
+
+     {errors.date && <div className="signup-error">{errors.date}</div>}
+      <label htmlFor="password" className="signup-label">Password:</label>
+      <input
         type="password"
         name="password"
         value={password}
         onChange={event => setPassword(event.target.value)}
-        className="signup-input"
-    />
-    {errors.password && <div className="signup-error">{errors.password}</div>}
-    <label htmlFor="confirmPassword" className="signup-label">Confirm Password:</label>
-    <input
+        className="signup-input" />
+      {errors.password && <div className="signup-error">{errors.password}</div>}
+      <label htmlFor="confirmPassword" className="signup-label">Confirm Password:</label>
+      <input
         type="password"
         name="confirmPassword"
         value={confirmPassword}
         onChange={event => setConfirmPassword(event.target.value)}
-        className="signup-input"
-    />
-    {errors.confirmPassword && <div className="signup-error">{errors.confirmPassword}</div>}
-    <button type="submit" className="signup-button">Sign Up</button>
+        className="signup-input" />
+      {errors.confirmPassword && <div className="signup-error">{errors.confirmPassword}</div>}
+      <button type="submit" className="signup-button">Sign Up</button>
     </form>
+    </main>
+    <div className="welcome-container">
+    <h1 className="heading-secondary">Welcome to <span className="lg">SettleOUT! <br></br></span>
+    <span> Your One Stop Navigator for Your New Life In Regina</span> </h1>
+    <br></br>
+   
+  </div>
+    </div>
+    
+    
+    </>
 
   );  
 };

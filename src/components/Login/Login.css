@@ -3,7 +3,9 @@
     box-sizing: border-box;
     /* font-family: "CustomFont"; */
   }
-  
+.container{
+background-image: "../assets/background1.jpg";
+}
   .login-form {
       display: flex;
       flex-direction: column;

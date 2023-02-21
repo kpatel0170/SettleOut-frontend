@@ -9,8 +9,8 @@ function App() {
     
 
     // So in general please uncomment the particular page that you are working on so that it reflects when you do npm start
-       <Login />
-       //<Signup />  // Uncomment this and comment the login so that you can see signup page
+       //<Login />
+      <Signup />  // Uncomment this and comment the login so that you can see signup page
    
   );
 }

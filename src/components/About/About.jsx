@@ -17,8 +17,8 @@ function About  ({ featured = false, children = null })  {
         <section>
           <div class="title">
             
-            <h1>Global Nest</h1>
-            <h3>Settle in with ease, spread your wings with us</h3>
+            <h1>Settle Out</h1>
+            <h3>Settle in with ease, spread your wings with us!</h3>
           </div>
         </section>
         

@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
 import Upgrade from "./pages/Upgrade";
+import PreArrival from "./pages/PreArrival";
 
 import Card from './pages/Card';
 import Button from './pages/Card';
@@ -26,7 +27,8 @@ function App() {
 
       // <AgentList />
       //<Payment />
-      <Upgrade/>
+      //<Upgrade/>
+      <PreArrival/>
   );
 }
 

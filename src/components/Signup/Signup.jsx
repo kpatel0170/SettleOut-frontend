@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Signup.css'
-import GoogleLogin from "react-google-login";
 const Signup = () => {
   // Use the useState hook to create "username", "email", "password", and "confirmPassword" state variables
   const [username, setUsername] = useState('');

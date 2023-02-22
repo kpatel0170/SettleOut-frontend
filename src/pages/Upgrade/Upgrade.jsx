@@ -48,7 +48,18 @@ class Upgrade extends Component {
                                     <label className="detail-info">Major</label>
                                     <input className="input" type="text" />
                                 </div>
-                                
+                                <div>
+                                    <label className="detail-info">City</label>
+                                    <input className="input" type="text" size="10"/>
+                                </div>
+                                <div>
+                                    <label className="detail-info">Provience </label>
+                                    <input className="input" type="text" size="10"/>
+                                </div>
+                                <div>
+                                    <label className="detail-info">Provience </label>
+                                    <input className="input" type="textarea" rows="4" cols="50" />
+                                </div>
                                 <div className="detailBtn">
                                     <button type="submit">Apply to become an agent !</button>
                                 </div>

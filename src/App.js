@@ -5,6 +5,8 @@ import { Route } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
+import Upgrade from "./pages/Upgrade";
+
 import Card from './pages/Card';
 import Button from './pages/Card';
 import AgentList from './pages/AgentList';
@@ -23,7 +25,8 @@ function App() {
       // <Button />
 
       // <AgentList />
-      <Payment />
+      //<Payment />
+      <Upgrade/>
   );
 }
 

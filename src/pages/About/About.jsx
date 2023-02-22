@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import "./About.css";
 
 import { gapi } from "gapi-script";
-import Navbar from "../Navbar";
 //import commonApi from "../../api/common";
 //import { Context } from "../context/Context";
 //import { useNavigate } from "react-router";
@@ -11,7 +10,7 @@ import Navbar from "../Navbar";
 function About  ({ featured = false, children = null })  {
     return( 
         <>
-        {/* <Navbar /> */}
+       
         <div id="parallax-world-of-ugg">
   
         <section>

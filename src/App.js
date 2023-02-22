@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Payment from "./pages/Payment";
 import Card from './pages/Card';
 import Button from './pages/Card';
+import AgentList from './pages/AgentList';
 import './App.css';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
       //  <Navbar />
       // <Card />
       // <Button />
+
+      // <AgentList />
       <Payment />
   );
 }

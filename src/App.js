@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Payment from "./pages/Payment";
 import Upgrade from "./pages/Upgrade";
 import PreArrival from "./pages/PreArrival";
+import UserDetail from "./pages/UserDetail";
 import Homepage from "./pages/Homepage";
 import Card from './pages/Card';
 import Button from './pages/Card';
@@ -18,13 +19,13 @@ function App() {
     
 
     // So in general please uncomment the particular page that you are working on so that it reflects when you do npm start
-        <About />
+       // <About />
       //  <Login />
       // <Signup />  // Uncomment this and comment the login so that you can see signup page
-      //  <Navbar />
-      // <Card />
+       <Navbar />
+       //<Card />
       // <Button />
-
+    //<UserDetail />
       // <AgentList />
       //<Payment />
       //<Upgrade/>

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Button from './Button';
-//import { CheckIcon } from '@heroicons/react/solid';
+import { CheckIcon } from '@heroicons/react/solid';
 import React, { useState, useEffect } from 'react';
 //  
 import GoogleLogin from "react-google-login";

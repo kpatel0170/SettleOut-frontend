@@ -42,9 +42,9 @@ background-image: url("https://image.ibb.co/de6JzG/bitmap_1_1.png");
   padding-top:90px;
 }
 
-.sect--white{
- /* background-color:#fff;*/
-}
+/* .sect--white{
+  background-color:#fff;
+} */
 .row--center{
   max-width: 500px;
   margin: 0 auto;
@@ -305,9 +305,9 @@ color: #fff;
   margin-right:10px;
 }
 
-.carousel{
+/* .carousel{
     
-}
+} */
 
 .row__carousel{
   display:inline-block;

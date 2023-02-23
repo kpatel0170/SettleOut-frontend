@@ -17,7 +17,7 @@ function Homepage  ({ featured = false, children = null }){return (
         <a class="btn btn--width" href="/Pricing">Choose an Agent</a>
         <a class="btn btn--revert btn--width" href="/Contact">Contact</a>
       </div>
-      <img class="site__img" src="https://www.arts.ubc.ca/wp-content/uploads/sites/24/2022/11/ArtsCareerConversations_LandingaJob.jpg"></img>
+      <img class="site__img" src="https://media.discordapp.net/attachments/1063577425549725762/1078126567496101929/ArtsCareerConversations_LandingaJob.jpg"></img>
     </div>
     </div>
     </div>

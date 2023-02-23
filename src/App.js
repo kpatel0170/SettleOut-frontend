@@ -11,6 +11,8 @@ import Homepage from "./pages/Homepage";
 import Card from './pages/Card';
 import Button from './pages/Card';
 import AgentList from './pages/AgentList';
+import ADBoard from './pages/ADBoard';
+
 import './App.css';
 
 function App() {
@@ -18,13 +20,13 @@ function App() {
     
 
     // So in general please uncomment the particular page that you are working on so that it reflects when you do npm start
-        <About />
+     //   <About />
       //  <Login />
       // <Signup />  // Uncomment this and comment the login so that you can see signup page
       //  <Navbar />
       // <Card />
       // <Button />
-
+      <ADBoard />
       // <AgentList />
       //<Payment />
       //<Upgrade/>

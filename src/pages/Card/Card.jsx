@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Button from './Button';
-import { CheckIcon } from '@heroicons/react/solid';
+//import { CheckIcon } from '@heroicons/react/solid';
 import React, { useState, useEffect } from 'react';
 //  
 import GoogleLogin from "react-google-login";
@@ -46,7 +46,8 @@ const Card = ({
       <div className="mb-12">
         {features.map((feature, i) => (
           <div className="flex items-center mb-3" key={i}>
-            <CheckIcon className="w-6 h-6 mr-2 sm:mr-4 text-green-500 flex-shrink-0" />
+            { //<CheckIcon className="w-6 h-6 mr-2 sm:mr-4 text-green-500 flex-shrink-0" />
+            }
             <p className="text-gray-600 text-base sm:text-lg">{feature}</p>
           </div>
         ))}

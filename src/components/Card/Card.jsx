@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types';
-import Button from './Button';
+import Button from '../Button/Button';
 import { CheckIcon } from '@heroicons/react/solid';
 import React, { useState, useEffect } from 'react';
-//  
-import GoogleLogin from "react-google-login";
-import { gapi } from "gapi-script";
 
-const Card = ({
+
+function Card  ({
+  _id,
   name = '',
   price = 0,
   currency = '$',
   frequency = 'month',
-  features = [],
+  services = [],
   featured = false,
-}) => (
+  handleSubmit
+}) { 
+  return(
   <div
     className={`cursor-pointer shadow-xl rounded-md bg-white text-black border-indigo-600 ${
       featured ? 'border-2 relative' : 'border border-opacity-10'
@@ -36,7 +37,7 @@ const Card = ({
           </p>
           <p className="text-4xl sm:text-7xl font-bold mr-1 sm:mr-2">{price}</p>
         </div>
-        <p className="text-gray-400 text-lg sm:text-2xl">/{frequency}</p>
+        {/*<p className="text-gray-400 text-lg sm:text-2xl">/{frequency}</p> */}
       </div>
     </div>
 
@@ -44,20 +45,22 @@ const Card = ({
     <div className="bg-gray-100 rounded-b-md p-6 sm:p-8 xl:p-12">
       {/* Features list */}
       <div className="mb-12">
-        {features.map((feature, i) => (
+        {services.map((feature, i) => (
           <div className="flex items-center mb-3" key={i}>
-            { //<CheckIcon className="w-6 h-6 mr-2 sm:mr-4 text-green-500 flex-shrink-0" />
-            }
+            <CheckIcon className="w-6 h-6 mr-2 sm:mr-4 text-green-500 flex-shrink-0" />
             <p className="text-gray-600 text-base sm:text-lg">{feature}</p>
           </div>
         ))}
       </div>
 
       {/* CTA */}
-      <Button featured={featured}>Start your trial</Button>
+      <Button featured={featured} onClick={()=>
+        handleSubmit(_id,price)
+      }>Start your trial</Button>
     </div>
   </div>
 );
+};
 
 Card.propTypes = {
   name: PropTypes.string,

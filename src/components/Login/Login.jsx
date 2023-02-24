@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./Login.css";
 //import Navbar from "../Navbar";
+
 import commonApi from "../../api/common";
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
@@ -72,6 +73,7 @@ function Login() {
   // Render the Login form
   return (
     <>
+    
         <div className="container">
           <main className="login-container">
             <h1>
@@ -128,6 +130,7 @@ function Login() {
    
   </div>
   </div>
+  
     </>
 
   );

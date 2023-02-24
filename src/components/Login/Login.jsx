@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./Login.css";
 //import Navbar from "../Navbar";
 import commonApi from "../../api/common";
-import { Context } from "../context/Context";
+import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 function Login() {
   const { dispatch } = useContext(Context);
@@ -61,8 +61,8 @@ function Login() {
         .catch((error) => {
           dispatch({ type: "LOGIN_FAILURE" });
           setErrors({
-            username: "Username or password is not correct",
-            password: "Username or password is not correct",
+            username: "Username is incorrect",
+            password: "Password is incorrect",
           });
           console.error(error);
         });

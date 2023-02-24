@@ -2,6 +2,7 @@
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
 import Cards from "./pages/Cards";
@@ -53,6 +54,12 @@ function App() {
           exact
           path="/cards"
           element={<Cards />}
+        />
+       
+        <Route
+          exact
+          path="/footer"
+          element={<Footer />}
         />
         </Routes>
         </BrowserRouter>

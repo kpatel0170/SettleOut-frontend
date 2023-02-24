@@ -9,7 +9,7 @@ return (
 
 			<div class="footer-left">
 
-				<h3>Company<span>logo</span></h3>
+				<h3>Settle<span>Out</span></h3>
 
 				<p class="footer-links">
 					<a href="/Home" class="link-1">Home</a>

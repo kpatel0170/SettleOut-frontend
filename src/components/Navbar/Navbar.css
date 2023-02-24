@@ -1,4 +1,4 @@
-a {
+.Navbuttons a {
     margin: 10px;
     display: flex;
     align-items: center;
@@ -9,6 +9,6 @@ a {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-img {
+/*img {
     height: 100px;
-}
+}*/

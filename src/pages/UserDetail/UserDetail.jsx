@@ -11,8 +11,8 @@ function UserDetail ()  {
 		<title>Add Contact</title>
 	</head>
 <body>
-<div class="container">
-  <div class="row header">
+<div className="container">
+  <div className="row header">
   
     <h1>Edit your Profile <p></p><img src="https://cdn.discordapp.com/attachments/1072226973365051522/1078135428781195294/person-icon-1675.png"></img>
 
@@ -21,56 +21,56 @@ function UserDetail ()  {
     <h3>Fill out the fields to edit your profile!</h3>
     
   </div>
-  <div class="row body">
+  <div className="row body">
     <form id="add-contact-form" action="#">
       <ul>
         
         <li>
-          <p class="left">
-            <label for="firstname">first name<span class="req">*</span></label>
+          <p className="left">
+            <label for="firstname">first name<span className="req">*</span></label>
             <input type="text" name="firstname" placeholder="John" />
           </p>
         
-          <p class="pull-right">
-            <label for="lastname">last name<span class="req">*</span></label>
+          <p className="pull-right">
+            <label for="lastname">last name<span className="req">*</span></label>
             <input type="text" name="lastname" placeholder="Smith" />      
           </p>
         </li>
-        <p class="left">
+        <p className="left">
             <label for="dob">birthday</label>
             <input type="text" id="birthday" name="birthday" placeholder="dd-mm-yyyy" />
           </p>
-        <li><div class="divider"></div></li>
+        <li><div className="divider"></div></li>
         <li>
           <label for="personal">Personal Address</label>
         </li><li>
-          <p class="left">
+          <p className="left">
             <label for="street">street</label>
             <input type="text" name="street" placeholder="Street" />
           </p>
-          <p class="pull-center">
+          <p className="pull-center">
             <label for="city">city</label>
             <input type="text" name="city" placeholder="City" />      
           </p>
       
         </li>
         <li>
-          <p class="left">
+          <p className="left">
             <label for="country">country</label>
             <input type="text" name="country" placeholder="Country" />
           </p>
-          <p class="pull-center">
+          <p className="pull-center">
             <label for="state">state</label>
             <input type="text" name="state" placeholder="State" />    
           </p>
           
         </li>
         <li>
-          <p class="left">  
+          <p className="left">  
             <label for="cellphone">cell phone</label>
             <input type="text" name="cellphone" placeholder="Cellphone" />
           </p>
-          <p class="pull-center">
+          <p className="pull-center">
             <label for="postal-code">postal code</label>
             <input type="text" name="postal-code" placeholder="Postal Code" />
           </p>
@@ -80,17 +80,17 @@ function UserDetail ()  {
         
         <li>
           <p>
-            <label for="email">email <span class="req">*</span></label>
+            <label for="email">email <span className="req">*</span></label>
             <input type="email" name="email" placeholder="john.smith@gmail.com" />
           </p>
         </li>        
         <li>
-          <div class="divider"></div>
+          <div className="divider"></div>
         </li>
         
         <li>
-          <input class="btn btn-submit" type="submit" value="Save" /><span></span>
-          <input class="btn btn-submit" type="submit" value="Cancel" />
+          <input className="btn btn-submit" type="submit" value="Save" /><span></span>
+          <input className="btn btn-submit" type="submit" value="Cancel" />
          
         </li>
         

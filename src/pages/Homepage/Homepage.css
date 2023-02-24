@@ -26,9 +26,9 @@ background-image: url("https://image.ibb.co/de6JzG/bitmap_1_1.png");
  display: block;
 }
 
-.sect--grey{
-  /*background-color: #ebeff9;*/
-}
+/* .sect--grey{
+  background-color: #ebeff9;
+} */
 
 .sect--violet{
   background-color:#6f79ff;

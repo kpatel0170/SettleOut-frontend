@@ -4,12 +4,13 @@ import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
+import Cards from "./pages/Cards";
 import Upgrade from "./pages/Upgrade";
 import PreArrival from "./pages/PreArrival";
 // import UserDetail from "./pages/UserDetail";
 import Homepage from "./pages/Homepage";
-import Card from './pages/Card';
-import Button from './pages/Card';
+import Card from './components/Card';
+import Button from './components/Button';
 import AgentList from './pages/AgentList';
 import ADBoard from './pages/ADBoard';
 import FeedbackForm from './pages/FeedbackForm';
@@ -42,6 +43,16 @@ function App() {
           exact
           path="/payment"
           element={<Payment />}
+        />
+        <Route
+          exact
+          path="/card"
+          element={<Card />}
+        />
+        <Route
+          exact
+          path="/cards"
+          element={<Cards />}
         />
         </Routes>
         </BrowserRouter>

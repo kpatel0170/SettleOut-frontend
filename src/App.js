@@ -1,7 +1,6 @@
-import logo from './logo.svg';
+
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import { Route } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
@@ -13,15 +12,23 @@ import Card from './pages/Card';
 import Button from './pages/Card';
 import AgentList from './pages/AgentList';
 import ADBoard from './pages/ADBoard';
+<<<<<<< HEAD
 import FeedbackForm from './pages/FeedbackForm';
 
+=======
+import { Context } from "./components/context/Context";
+import { useContext } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+>>>>>>> b723b17805e691b5dc8aef9c2afc15c3a85c68f8
 
 import './App.css';
 
 function App() {
+      const { user, dispatch, token } = useContext(Context);
   return (
     
 
+<<<<<<< HEAD
     // So in general please uncomment the particular page that you are working on so that it reflects when you do npm start
 //<<<<<<< HEAD
      //   <About />
@@ -44,6 +51,17 @@ function App() {
       //<PreArrival/>
      // <Homepage/>
       < FeedbackForm/>
+=======
+      <BrowserRouter>
+      <Routes>
+        <Route
+          exact
+          path="/login"
+          element={<Login />}
+        />
+        </Routes>
+        </BrowserRouter>
+>>>>>>> b723b17805e691b5dc8aef9c2afc15c3a85c68f8
   );
 }
 

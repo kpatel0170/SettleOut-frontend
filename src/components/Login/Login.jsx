@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Login.css";
-
-const Login = () => {
+//import Navbar from "../Navbar";
+import commonApi from "../../api/common";
+import { Context } from "../context/Context";
+import { useNavigate } from "react-router";
+function Login() {
+  const { dispatch } = useContext(Context);
+ const navigate = useNavigate();
   // Use the useState hook to create state variables for the form fields and errors
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,7 +36,7 @@ const Login = () => {
   };
 
   // Create a function to handle form submissions
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     // Prevent the form from refreshing the page
     event.preventDefault();
 
@@ -41,17 +46,27 @@ const Login = () => {
     // If the form is valid, submit the form
     if (isValid) {
       // Add code here to submit the form
+      await commonApi({
+        action: "login",
+        data: {
+          email: username,
+          password: password,
+        },
+      })
+        .then(({ DATA = {}, MESSAGE }) => {
+          let { token, ...data } = DATA;
+          dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
+          navigate("/");
+        })
+        .catch((error) => {
+          dispatch({ type: "LOGIN_FAILURE" });
+          setErrors({
+            username: "Username or password is not correct",
+            password: "Username or password is not correct",
+          });
+          console.error(error);
+        });
     }
-  };
-
-  const onSuccess = (e) => {
-    alert("User signed in");
-    console.log(e);
-  };
-
-  const onFailure = (e) => {
-    alert("User sign in Failed");
-    console.log(e);
   };
 
   // Render the Login form
@@ -79,9 +94,7 @@ const Login = () => {
               className={`login-input ${errors.username ? "input-error" : ""}`}
             />
             <div
-              className={`error-message ${
-                errors.username ? "visible" : "hidden"
-              }`}
+              className={`error-message ${errors.username ? "visible" : "hidden"}`}
             >
               {errors.username}
             </div>
@@ -96,8 +109,7 @@ const Login = () => {
               className={`login-input ${errors.password ? "input-error" : ""}`}
             />
             <div
-              className={`error-message ${
-                errors.password ? "visible" : "hidden"
+              className={`error-message ${errors.password ? "visible" : "hidden"
               }`}
             >
               {errors.password}

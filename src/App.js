@@ -14,7 +14,7 @@ import AgentList from './pages/AgentList';
 import ADBoard from './pages/ADBoard';
 import FeedbackForm from './pages/FeedbackForm';
 
-import { Context } from "./components/context/Context";
+import { Context } from "./context/Context";
 import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -37,6 +37,11 @@ function App() {
           exact
           path="/signup"
           element={<Signup />}
+        />
+        <Route
+          exact
+          path="/payment"
+          element={<Payment />}
         />
         </Routes>
         </BrowserRouter>

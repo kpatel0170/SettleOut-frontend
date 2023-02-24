@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import './Signup.css';
-import { Context } from "../context/Context";
+import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 import commonApi from "../../api/common";
 const Signup = () => {

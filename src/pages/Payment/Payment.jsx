@@ -1,20 +1,52 @@
 import "./Payment.css";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Context } from "../../context/Context";
+import commonApi from "../../api/common";
 
- function Payment() {
+function Payment() {
   const [card, setCard] = useState({
     cardno: "",
     cardtype: "far fa-credit-card",
-    expirydt: ""
+    expirydt: "",
   });
-
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const { user } = useContext(Context);
+  const [cvv, setCVV] = useState("");
+  const handlePayment = async () => {
+    let data = {
+      membershipId: state.membershipId,
+      agentId: state.agentId,
+      userId: user._id,
+      amount: state.amount,
+      cardDetails: {
+        number: card.cardno,
+        exp_month: card.expirydt.replace(/\//g, "").substring(0, 2),
+        exp_year: card.expirydt.replace(/\//g, "").substring(2, 4),
+        cvc: cvv,
+      },
+    };
+    await commonApi({
+      action: "createTransaction",
+      data: data,
+    })
+      .then(({ DATA = {}, MESSAGE }) => {
+        console.log('herre')
+        navigate("/preArrival");
+      })
+      .catch((error) => {
+        navigate("/");
+        console.error(error);
+      });
+  };
   const onChange = (e) => {
     var cartype_new = cardnumber(e.target.value);
     setCard({
       ...card,
       cardno: e.target.value,
-      cardtype: cartype_new
+      cardtype: cartype_new,
     });
   };
   const cardnumber = (inputtxt) => {
@@ -66,7 +98,7 @@ import React, { useState } from "react";
   const onChangeExp = (e) => {
     setCard({
       ...card,
-      expirydt: e.target.value
+      expirydt: e.target.value,
     });
   };
 
@@ -83,8 +115,9 @@ import React, { useState } from "react";
                 type="text"
                 className="cardetails-input"
                 data-mask="0000 0000 0000 0000"
+                maxLength={16}
                 placeholder="XXXX-XXXX-XXXX-XXXX"
-                value={cc_format(card.cardno)}
+                value={card.cardno}
                 onChange={onChange}
                 onKeyPress={(event) => {
                   if (!/[0-9]/.test(event.key)) {
@@ -116,13 +149,15 @@ import React, { useState } from "react";
                   className="cardetails-input"
                   data-mask="000"
                   placeholder="000"
-                  maxlength="3"
+                  maxLength="3"
                   pattern="[0-9][0-9][0-9]"
                   onKeyPress={(event) => {
                     if (!/[0-9]/.test(event.key)) {
                       event.preventDefault();
                     }
                   }}
+                  onChange={(e) => setCVV(e.target.value)}
+                  value={cvv}
                 />
                 <i className="fas fa-lock"></i>
               </div>
@@ -132,12 +167,15 @@ import React, { useState } from "react";
               <input type="text" className="cardetails-input" placeholder="" />
               <i className="fas fa-user"></i>
             </div>
-            <div className="cardetails-btn">Pay</div>
+            <div className="cardetails-btn" onClick={handlePayment}>
+              Pay
+            </div>
           </div>
         </div>
       </div>
     </>
   );
-};
+}
+
 
 export default Payment;

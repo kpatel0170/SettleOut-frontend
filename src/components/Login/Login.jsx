@@ -84,7 +84,7 @@ function Login() {
             <form onSubmit={handleSubmit} className="login-form">
 
             <label htmlFor="username" className="login-label">
-              Username:
+              Email:
             </label>
             <input
               type="text"

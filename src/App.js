@@ -61,6 +61,11 @@ function App() {
           path="/footer"
           element={<Footer />}
         />
+        <Route
+          exact
+          path="/agentlist"
+          element={<AgentList />}
+        />
         </Routes>
         </BrowserRouter>
   );

@@ -68,8 +68,18 @@ function App() {
         />
         <Route
           exact
-          path="/ADBoard"
+          path="/agentdashboard"
           element={<ADBoard />}
+        />
+        <Route
+          exact
+          path="/prearrival"
+          element={<PreArrival />}
+        />
+        <Route
+          exact
+          path="/payment"
+          element={<Payment />}
         />
         </Routes>
         </BrowserRouter>

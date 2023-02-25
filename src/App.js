@@ -66,6 +66,11 @@ function App() {
           path="/agentlist"
           element={<AgentList />}
         />
+        <Route
+          exact
+          path="/ADBoard"
+          element={<ADBoard />}
+        />
         </Routes>
         </BrowserRouter>
   );

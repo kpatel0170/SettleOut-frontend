@@ -2,9 +2,18 @@
 import { createContext, useEffect, useReducer } from "react";
 import Reducer from "./Reducer";
 
+let user = null;
+let token = null;
+try {
+  user = JSON.parse(localStorage.getItem("user"));
+  token = JSON.parse(localStorage.getItem("token"));
+} catch (e) {
+  // handle error
+}
+
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem("user")),
-  token: JSON.parse(localStorage.getItem("token")),
+  user,
+  token,
   isFetching: false,
   error: false
 };

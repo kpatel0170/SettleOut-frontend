@@ -1,27 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./Login.css";
-//import Navbar from "../Navbar";
-
+import "./Login.css"
 import commonApi from "../../api/common";
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
+import Toast from "../../api/toast";
+import "react-notifications-component/dist/theme.css";
+
+
 function Login() {
-  const { dispatch } = useContext(Context);
+  const { dispatch, isFetching } = useContext(Context);
  const navigate = useNavigate();
   // Use the useState hook to create state variables for the form fields and errors
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  // Create a function to validate the form
   const validateForm = () => {
-    // Set the errors object to an empty object
     setErrors({});
 
-    // Create a new errors object that will be used to update the errors state variable
     const newErrors = {};
 
-    // Validate the username and password fields
     if (username.trim().length === 0) {
       newErrors.username = "Username is required";
     }
@@ -29,24 +27,17 @@ function Login() {
       newErrors.password = "Password is required";
     }
 
-    // Set the errors state variable to the new errors object
     setErrors(newErrors);
 
-    // Return true if the errors object is empty, false if it is not
     return Object.keys(newErrors).length === 0;
   };
 
-  // Create a function to handle form submissions
   const handleSubmit = async (event) => {
-    // Prevent the form from refreshing the page
     event.preventDefault();
 
-    // Validate the form
     const isValid = validateForm();
 
-    // If the form is valid, submit the form
     if (isValid) {
-      // Add code here to submit the form
       await commonApi({
         action: "login",
         data: {
@@ -57,6 +48,7 @@ function Login() {
         .then(({ DATA = {}, MESSAGE }) => {
           let { token, ...data } = DATA;
           dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
+          Toast.success(MESSAGE);
           navigate("/");
         })
         .catch((error) => {
@@ -81,7 +73,7 @@ function Login() {
               To Access Service LOGIN<span className="custom-dot">.</span>
             </h1>
             <p className="text-mute">
-              If not a member? <a href="$">Sign Up</a>
+              If not a member? <a href="/signup">Sign Up</a>
             </p>
             <form onSubmit={handleSubmit} className="login-form">
 

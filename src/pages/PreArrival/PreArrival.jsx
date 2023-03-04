@@ -90,7 +90,7 @@ const PreArrival = () => {
         )}
     </div>
     
-    <a href="#" type="submit" className="signup-button">
+    <a href="/" type="submit" className="signup-button">
       <span></span>
       <span></span>
       <span></span>

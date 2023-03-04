@@ -1,8 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import './Signup.css';
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 import commonApi from "../../api/common";
+import Toast from "../../api/toast";
+
 const Signup = () => {
   // Use the useState hook to create "username", "email", "password", and "confirmPassword" state variables
   const [email, setEmail] = useState("");
@@ -13,18 +15,13 @@ const Signup = () => {
   const [phone, setPhone] = useState("");
   const { dispatch } = useContext(Context);
   const navigate = useNavigate();
-  // Use the useState hook to create an error state variable, which will be used to display any form validation errors
   const [errors, setErrors] = useState({});
 
-  // Create a function to validate the form
   const validateForm = () => {
-    // Set the errors object to an empty object
     setErrors({});
 
-    // Create a new errors object that will be used to update the errors state variable
     const newErrors = {};
 
-    // Validate the username, email, password, and confirmPassword fields using regex
     if (firstName.length === 0) {
       newErrors.firstName = "FirstName is required";
     }
@@ -44,43 +41,25 @@ const Signup = () => {
     } else if (password.trim().length < 8) {
       newErrors.password = "Password must be at least 8 characters long";
     } 
-    // else if (
-    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i.test(
-    //     password
-    //   )
-    // ) {
-    //   newErrors.password = "Password must be at least 8 characters long";
-    // } else if (
-    //   !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/i.test(
-    //     password
-    //   )
-    // ) {
-    //   newErrors.password =
-    //     "Password must contain at least one lowercase letter, one uppercase letter, one number, and one special character";
-    // }
+    
     if (confirmPassword.trim().length === 0) {
       newErrors.confirmPassword = "Confirm Password is required";
     } else if (confirmPassword !== password) {
       newErrors.confirmPassword = "Passwords do not match";
     }
 
-    // Set the errors state variable to the new errors object
     setErrors(newErrors);
 
-    // Return true if the errors object is empty, false if it is not
     return Object.keys(newErrors).length === 0;
+ 
   };
 
-  // Create a function to handle the form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validate the form
     validateForm();
 
-    // If there are no errors, submit the form
     if (Object.keys(errors).length === 0) {
-      // TODO: Add code to submit the form here (e.g. make a request to a server to create a new user account)
       await commonApi({
         action: "register",
         data: {
@@ -96,6 +75,7 @@ const Signup = () => {
         .then(({ DATA = {}, MESSAGE }) => {
           let { token, ...data } = DATA;
           dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
+          Toast.success(MESSAGE);
           navigate("/");
         })
         .catch((error) => {

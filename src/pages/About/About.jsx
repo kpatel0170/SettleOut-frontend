@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./About.css";
 
-import { gapi } from "gapi-script";
 //import commonApi from "../../api/common";
 //import { Context } from "../context/Context";
 //import { useNavigate } from "react-router";

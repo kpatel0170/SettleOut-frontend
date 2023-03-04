@@ -17,6 +17,7 @@ import FeedbackForm from './pages/FeedbackForm';
 import { Context } from "./context/Context";
 import { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ReactNotifications } from "react-notifications-component";
 
 import './App.css';
 
@@ -24,8 +25,15 @@ function App() {
   const { user, dispatch, token } = useContext(Context);
 
   return (
+    <>
+    <ReactNotifications />
     <BrowserRouter>
       <Routes>
+        <Route
+          exact
+          path="/"
+          element={token && user ? <Homepage /> : <Login />}
+        />
         <Route
           exact
           path="/login"
@@ -88,6 +96,7 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+    </>
   );
 }
 

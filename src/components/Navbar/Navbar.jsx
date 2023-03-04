@@ -1,9 +1,21 @@
-
-import React from 'react';
+import React, { useContext } from "react";
+import { Context } from "../../context/Context";
+import { useLocation, useNavigate } from "react-router-dom";
+import Toast from "../../api/toast";
 // import Logo from "../assets/Globalblac.png";
 import "./Navbar.css"
 
 const Navbar = () => {
+  const { user, dispatch, token } = useContext(Context);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const pathName = location.pathname;
+  const handleLogout = async () => {
+    localStorage.clear();
+    dispatch({ type: "LOGOUT" });
+    Toast.info("You have been successfully logged out")
+    navigate("/login");
+  };
   return (
     <div style={{display: "flex", justifyContent: "space-between"}}>
         <div>
@@ -11,11 +23,35 @@ const Navbar = () => {
         </div>
         <div>
             <ul className='Navbuttons' style={{display: "flex"}}>
-            <a href="/Upgrade">Apply to be agent</a>
-            <a href="#">About Us</a>
-            <a href="/dashboard">Contact Us</a>
-                <a href="/signup">Sign Up</a>
-                </ul>
+            {user && token && (
+            <>
+              {user.accountType === "public" && (
+                <a href="/Upgrade">
+                  Upgrade to agent
+                </a>
+              )}
+              <a href="/About">
+                About Us
+              </a>
+              {/* <a href="">
+                Contact Us
+              </a> */}
+              <a href="" onClick={handleLogout}>
+                LogOut
+              </a>
+            </>
+          )}
+          {!user && !token && pathName != "/signup" && (
+            <a href="/signup">
+              Sign Up
+            </a>
+          )}
+          {!user && !token && pathName != "/login" && (
+            <a href="/login">
+              Login
+            </a>
+          )}
+          </ul>
         </div>
     </div>
       );

@@ -61,7 +61,7 @@ class Upgrade extends Component {
                                     <input className="input" type="textarea" rows="4" cols="50" />
                                 </div>
                                 <div className="detailBtn">
-                                    <button type="submit">Apply to become an agent !</button>
+                                    <button type="submit"><a href="/">Apply to become an agent !</a></button>
                                 </div>
                             </div>
                         </form>

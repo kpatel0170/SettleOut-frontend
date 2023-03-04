@@ -13,8 +13,7 @@ function Card  ({
   services = [],
   featured = false,
   handleSubmit
-}) { 
-  return(
+}) { return(
   <div
     className={`cursor-pointer shadow-xl rounded-md bg-white text-black border-indigo-600 ${
       featured ? 'border-2 relative' : 'border border-opacity-10'

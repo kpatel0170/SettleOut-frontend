@@ -34,56 +34,47 @@ function App() {
         <Route
           exact
           path="/Upgrade"
-          element={token && user ? <Upgrade /> : <Login />}
-        />
-        <Route
-          exact
-          path="/About"
-          element={token && user ? <About /> : <Login />}
-        />
-        <Route
-          exact
-          path="/preArrival"
-          element={token && user ? <PreArrival /> : <Login />}
-        />
-        <Route
-          exact
-          path="/cards"
-          element={token && user ? <Cards /> : <Login />}
+          element={<Login />}
         />
         <Route
           exact
           path="/payment"
-          element={token && user ? <CardDetails /> : <Login />}
+          element={<Payment />}
+        />
+        <Route
+          exact
+          path="/About"
+          element={<About />}
+        />
+        <Route
+          exact
+          path="/preArrival"
+          element={<PreArrival /> }
+        />
+        <Route
+          exact
+          path="/cards"
+          element={ <Cards /> }
+        />
+        <Route
+          exact
+          path="/payment"
+          element={ <CardDetails /> }
         />
         <Route
           exact
           path="/signup"
-          element={token && user ? <Homepage /> : <Signup />}
+          element={ <Signup />}
         />
-        <Route
-          exact
-          path="/"
-          element={
-            token && user ? (
-              user.accountType === "public" ? (
-                <Homepage />
-              ) : (
-                <Homepage />
-              )
-            ) : (
-              <Login />
-            )
-          }
-        />
+       
 
         <Route
           exact
           path="/agent-list"
-          element={token && user ? <AgentList /> : <Login />}
+          element={ <AgentList />}
         />
 
-        <Route
+        {/* <Route
           path="/Student"
           element={
             token && user ? (
@@ -92,7 +83,7 @@ function App() {
               <Login />
             )
           }
-        />
+        /> */}
 
 
       </Routes>

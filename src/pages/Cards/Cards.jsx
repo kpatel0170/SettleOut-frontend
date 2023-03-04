@@ -3,66 +3,66 @@ import Card from "../../components/Card";
 import commonApi from "../../api/common";
 import { useNavigate, useLocation} from "react-router-dom";
 
-// export const plans = [
-//   {
-//     name: "Hobby",
-//     price: 19,
-//     frequency: "month",
-//     features: [
-//       "Nullam gravida elementum",
-//       "Mauris mauris neque",
-//       "Duis auctor tincidunt leo",
-//     ],
-//   },
-//   {
-//     name: "Growth",
-//     price: 49,
-//     frequency: "month",
-//     featured: true,
-//     features: [
-//       "Nullam gravida elementum",
-//       "Mauris mauris neque",
-//       "Duis auctor tincidunt leo",
-//     ],
-//   },
-//   {
-//     name: "Scale",
-//     price: 99,
-//     frequency: "month",
-//     features: [
-//       "Nullam gravida elementum",
-//       "Mauris mauris neque",
-//       "Duis auctor tincidunt leo",
-//     ],
-//   },
-// ];
+const plansR = [
+  {
+    name: "Hobby",
+    price: 19,
+    frequency: "month",
+    features: [
+      "Nullam gravida elementum",
+      "Mauris mauris neque",
+      "Duis auctor tincidunt leo",
+    ],
+  },
+  {
+    name: "Growth",
+    price: 49,
+    frequency: "month",
+    featured: true,
+    features: [
+      "Nullam gravida elementum",
+      "Mauris mauris neque",
+      "Duis auctor tincidunt leo",
+    ],
+  },
+  {
+    name: "Scale",
+    price: 99,
+    frequency: "month",
+    features: [
+      "Nullam gravida elementum",
+      "Mauris mauris neque",
+      "Duis auctor tincidunt leo",
+    ],
+  },
+];
 
 function Cards() {
 const {state}=useLocation()
-  const [plans, setPlans] = useState([]);
+  const [plans, setPlans] = useState(plansR);
   const navigate = useNavigate();
-  useEffect(() => {
-    const call = async () => {
-      await commonApi({
-        action: "findMembership",
-        data: {},
-      })
-        .then(({ DATA = {}, MESSAGE }) => {
-          setPlans(DATA.data);
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    };
-    call();
-  }, []);
+  // useEffect(() => {
+  //   const call = async () => {
+  //     await commonApi({
+  //       action: "findMembership",
+  //       data: {},
+  //     })
+  //       .then(({ DATA = {}, MESSAGE }) => {
+  //         setPlans(DATA.data);
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //       });
+  //   };
+  //   call();
+  // }, []);
 
   const handleSubmit=(id,amount)=>{
     try{
       navigate("/payment",{state:{
-        agentId:state.agentId,
-        membershipId:id,
-        amount:amount
+        //agentId:state.agentId,
+        //membershipId:id,
+     //   amount:amount
       }})
     }
     catch(error)

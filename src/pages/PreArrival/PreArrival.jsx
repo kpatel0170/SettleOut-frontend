@@ -84,7 +84,7 @@ const PreArrival = () => {
       <input type="text" name="province"
           value={province}
           onChange={(event) => setProvince(event.target.value)} required="" />
-      <label>Provience:</label>
+      <label>Province:</label>
       {errors.province && (
           <div className="signup-error">{errors.province}</div>
         )}

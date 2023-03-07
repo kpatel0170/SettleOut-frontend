@@ -216,7 +216,6 @@
     }
     
     .signup-label {
-      font-family: 'Roboto', sans-serif;
       font-size: 16px;
       color: #333;
       margin-bottom: 2px;
@@ -226,7 +225,6 @@
     }
     
     .signup-input {
-      font-family: 'Roboto', sans-serif;
       border: black;
     font-size: 1.8rem;
     padding: 3rem 5rem 1rem 2rem;

@@ -24,7 +24,6 @@
   
   body {
     background-image: "background1.jpg";
-    font-family: "Poppins", sans-serif;
     line-height: 1.6;
     color: #1a1a1a;
     font-size: 16px;
@@ -261,7 +260,6 @@
         border: 0;
         border-radius: 5px;
         color: white;
-        font-family: 'Roboto', sans-serif;
         font-size: 16px;
         cursor: pointer;
       }

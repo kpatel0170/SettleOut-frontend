@@ -6,12 +6,13 @@ import Payment from "./pages/Payment";
 import Membership from "./pages/Cards";
 import Upgrade from "./pages/Upgrade";
 import PreArrival from "./pages/PreArrival";
-// import UserDetail from "./pages/UserDetail";
+import UserDetail from "./pages/UserDetail";
 import Homepage from "./pages/Homepage";
 import Button from './components/Button';
 import AgentList from './pages/AgentList';
 import ADBoard from './pages/ADBoard';
 import FeedbackForm from './pages/FeedbackForm';
+
 
 import { Context } from "./context/Context";
 import { useContext } from "react";
@@ -35,7 +36,7 @@ function App() {
           element={
             token && user ? (
               user.accountType === "public" ? (
-                <Student />
+                <Homepage />
               ) : (
                 <ADBoard />
               )
@@ -52,12 +53,22 @@ function App() {
         <Route
           exact
           path="/Upgrade"
-          element={<Login />}
+          element={<Upgrade />}
         />
         <Route
           exact
           path="/payment"
           element={<Payment />}
+        />
+        <Route
+          exact
+          path="/details"
+          element={<UserDetail />}
+        />
+        <Route
+          exact
+          path="/feedback"
+          element={<FeedbackForm />}
         />
         <Route
           exact
@@ -91,8 +102,13 @@ function App() {
           path="/agent-list"
           element={ <AgentList />}
         />
-
         <Route
+          exact
+          path="/agent-board"
+          element={ <ADBoard />}
+        />
+
+        {/* <Route
           path="/student"
           element={
             token && user ? (
@@ -101,7 +117,7 @@ function App() {
               <Login />
             )
           }
-        />
+        /> */}
 
 
       </Routes>

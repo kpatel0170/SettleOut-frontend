@@ -1,14 +1,13 @@
-
+import "./App.css"
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import About from "./pages/About";
 import Payment from "./pages/Payment";
-import Cards from "./pages/Cards";
+import Membership from "./pages/Cards";
 import Upgrade from "./pages/Upgrade";
 import PreArrival from "./pages/PreArrival";
 // import UserDetail from "./pages/UserDetail";
 import Homepage from "./pages/Homepage";
-import CardDetails from './components/Card';
 import Button from './components/Button';
 import AgentList from './pages/AgentList';
 import ADBoard from './pages/ADBoard';
@@ -29,15 +28,26 @@ function App() {
     <ReactNotifications />
     <BrowserRouter>
       <Routes>
-        <Route
+
+      <Route
           exact
           path="/"
-          element={token && user ? <Homepage /> : <Login />}
+          element={
+            token && user ? (
+              user.accountType === "public" ? (
+                <Student />
+              ) : (
+                <ADBoard />
+              )
+            ) : (
+              <Homepage />
+            )
+          }
         />
         <Route
           exact
           path="/login"
-          element={token && user ? <Homepage /> : <Login />}
+          element={user ? <Homepage /> : <Login />}
         />
         <Route
           exact
@@ -61,13 +71,13 @@ function App() {
         />
         <Route
           exact
-          path="/cards"
-          element={ <Cards /> }
+          path="/membership"
+          element={ <Membership /> }
         />
         <Route
           exact
           path="/payment"
-          element={ <CardDetails /> }
+          element={ <Payment /> }
         />
         <Route
           exact
@@ -82,16 +92,16 @@ function App() {
           element={ <AgentList />}
         />
 
-        {/* <Route
-          path="/Student"
+        <Route
+          path="/student"
           element={
             token && user ? (
-              <ADBoard />
+              <Student />
             ) : (
               <Login />
             )
           }
-        /> */}
+        />
 
 
       </Routes>

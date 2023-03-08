@@ -100,7 +100,7 @@ const Signup = () => {
     <div className="container">
     <main className="signup-container">  
     <h1 className="heading-primary">Create new account<span className="custom-dot">.</span></h1>
-    <p className="text-mute">Already A Member? <a href="$">Log in</a></p>
+    <p className="text-mute">Already A Member? <a href="/login">Log in</a></p>
     <form onSubmit={handleSubmit} className="signup-form">
       <h1>SIGNUP</h1>
       <label htmlFor="firstName" className="signup-label">

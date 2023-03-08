@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     localStorage.clear();
     dispatch({ type: "LOGOUT" });
-    Toast.info("You have been successfully logged out")
+    Toast.success("You have been successfully logged out")
     navigate("/login");
   };
   return (
@@ -23,7 +23,7 @@ const Navbar = () => {
         </div>
         <div>
             <ul className='Navbuttons' style={{display: "flex"}}>
-            {user && token && (
+            {user  && (
             <>
               {user.accountType === "public" && (
                 <a href="/Upgrade">

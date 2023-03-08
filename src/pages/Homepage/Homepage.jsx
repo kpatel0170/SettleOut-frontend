@@ -5,7 +5,8 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 
-function Homepage  ({ featured = false, children = null }){return (
+function Homepage  ({ featured = false, children = null }){
+  return (
 <>
 <Navbar />
 <div className="sect sect--padding-top">

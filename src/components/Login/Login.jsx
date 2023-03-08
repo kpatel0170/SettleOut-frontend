@@ -8,7 +8,7 @@ import "react-notifications-component/dist/theme.css";
 
 
 function Login() {
-  const { dispatch, isFetching } = useContext(Context);
+  const { dispatch } = useContext(Context);
  const navigate = useNavigate();
   // Use the useState hook to create state variables for the form fields and errors
   const [username, setUsername] = useState("");
@@ -47,6 +47,7 @@ function Login() {
       })
         .then(({ DATA = {}, MESSAGE }) => {
           let { token, ...data } = DATA;
+          console.log(token + "-token");
           dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
           Toast.success(MESSAGE);
           navigate("/");

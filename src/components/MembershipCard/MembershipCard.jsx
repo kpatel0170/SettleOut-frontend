@@ -4,7 +4,7 @@ import { CheckIcon } from '@heroicons/react/solid';
 import React, { useState, useEffect } from 'react';
 
 
-function Card  ({
+function MembershipCard  ({
   _id,
   name = '',
   price = 0,
@@ -55,13 +55,13 @@ function Card  ({
       {/* CTA */}
       <Button featured={featured} onClick={()=>
         handleSubmit(_id,price)
-      }>Start your trial</Button>
+      }>Proceec to Pay</Button>
     </div>
   </div>
 );
 };
 
-Card.propTypes = {
+MembershipCard.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
   currency: PropTypes.string,
@@ -70,4 +70,4 @@ Card.propTypes = {
   featured: PropTypes.bool,
 };
 
-export default Card;
+export default MembershipCard;

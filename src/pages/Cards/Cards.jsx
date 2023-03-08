@@ -1,41 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Card from "../../components/Card";
+import Card from "../../components/MembershipCard";
 import commonApi from "../../api/common";
 import { useNavigate, useLocation} from "react-router-dom";
-
-// const plansR = [
-//   {
-//     name: "Hobby",
-//     price: 19,
-//     frequency: "month",
-//     features: [
-//       "Nullam gravida elementum",
-//       "Mauris mauris neque",
-//       "Duis auctor tincidunt leo",
-//     ],
-//   },
-//   {
-//     name: "Growth",
-//     price: 49,
-//     frequency: "month",
-//     featured: true,
-//     features: [
-//       "Nullam gravida elementum",
-//       "Mauris mauris neque",
-//       "Duis auctor tincidunt leo",
-//     ],
-//   },
-//   {
-//     name: "Scale",
-//     price: 99,
-//     frequency: "month",
-//     features: [
-//       "Nullam gravida elementum",
-//       "Mauris mauris neque",
-//       "Duis auctor tincidunt leo",
-//     ],
-//   },
-// ];
+import Navbar from '../../components/Navbar'
 
 function Cards() {
 const {state}=useLocation()
@@ -71,9 +38,11 @@ const {state}=useLocation()
     }
   }
   return (
-    <div className="h-full flex flex-col">
-      <main className="flex-1 px-6 py-12 lg:flex lg:justify-center lg:items-center">
-        <div className="grid gap-12 lg:gap-0 lg:grid-cols-3">
+    <>
+    <Navbar/>
+    <div className="h-full flex flex-col mt-10">
+      <main className="flex-1 px-6 py-12 lg:flex lg:justify-center lg:items-center lg:w-full">
+        <div className="grid gap-2 md:gap-12 lg:gap-16 xl:gap-2 lg:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan._id}
@@ -89,6 +58,7 @@ const {state}=useLocation()
         </div>
       </main>
     </div>
+    </>
   );
 }
 export default Cards;

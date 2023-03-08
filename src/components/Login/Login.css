@@ -1,23 +1,5 @@
-* {
-  /* margin: 0; */
-  box-sizing: border-box;
-  /* font-family: "CustomFont"; */
-  background-image: "background1.jpg";
-}
-
-
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
- /* background-image: "background1.jpg";*/
-
- 
-}
 html {
-  font-size: 62.5%;
+  font-size: 60%;
   /*background-image: "background1.jpg";*/
 
 }
@@ -29,7 +11,8 @@ body {
   color: #1a1a1a;
   font-size: 16px;
   overflow-x: hidden;
-  
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -37,6 +20,9 @@ a {
   text-decoration: none;
 }
 .container {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   display: grid;
   grid-template-rows: minmax(min-content, 100vh);
   grid-template-columns: repeat(2, 50vw);
@@ -154,8 +140,6 @@ a {
   flex-direction: column;
   justify-content: top;
   align-items: flex-start;
-  padding: 10em;
-  margin: 0;
 }
 .lg {
   font-size: 6rem;

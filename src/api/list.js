@@ -29,6 +29,10 @@ const apiList = {
       method:"post"
     },
   
+    getUserDetails: {
+      url: () => "user/findAll",
+      method: "post",
+    },
     // update Profile
     updateProfile: {
       url: () => "user/update-profile",

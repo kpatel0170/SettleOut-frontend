@@ -2,34 +2,37 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
-.i{
+.i {
   width: 90px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container {
   display: block;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .custom-dot {
   color: #2196f3;
 }
-.signup-container,
-.signup-form {
+.details-container,
+.details-form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.signup-container {
-  width: 60vw;
+.details-container {
+  width: 60%;
   padding: 10rem 10rem;
   align-items: flex-start;
   justify-content: center;
 }
-.signup-form {
+.details-form {
   max-width: 60rem;
   width: 100%;
 }
@@ -62,18 +65,17 @@
   cursor: pointer;
   font-family: inherit;
   font-weight: 500;
-  font-size: inherit;
 }
-.btn-signup {
+.btn-details {
   align-self: flex-end;
   width: 100%;
   margin-top: 2rem;
   box-shadow: 0 1rem 2rem #00000025;
 }
-.btn-signup:active {
+.btn-details:active {
   box-shadow: none;
 }
-.btn-signup:hover {
+.btn-details:hover {
   background: #2180f9;
 }
 .inp {
@@ -104,24 +106,15 @@
   display: flex;
   gap: 2rem;
 }
-.input-icon {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  font-size: 2rem;
-  color: #00000070;
+.input-wrapper {
+  flex-direction: column;
 }
-.input-icon-password {
-  cursor: pointer;
-}
-
 .container {
   display: flex;
 }
 .heading-secondary {
   font-size: 3rem;
 }
-
 
 .lg {
   font-size: 6rem;
@@ -137,7 +130,7 @@
 }
 
 @media only screen and (max-width: 60rem) {
-  .signup-container {
+  .details-container {
     padding: 5rem;
   }
 }
@@ -160,10 +153,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-  .signup-container {
+  .details-container {
     grid-column: 1 / 3;
-  }
-  .welcome-container {
-    display: none;
   }
 }

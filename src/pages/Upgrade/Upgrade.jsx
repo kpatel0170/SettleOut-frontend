@@ -1,76 +1,62 @@
-import React, { Component } from "react"
-import "./Upgrade.css"
+import React from "react";
+import "./Upgrade.css";
+import { useNavigate } from "react-router";
+import Toast from "../../api/toast";
 
-class Upgrade extends Component {
-    state = {
-        text: {
-            recipient: '',
-            textmessage: '',
-            carCompany: '',
-            floorArea: '',
-            location: ''
-        }
-    }
-  
-    render() {
-        const { text } = this.state;
-        const spacer = {
-            margin: 8
-        }
-        const textArea = {
-            borderRadius: 4
-        }
-        return ( 
-            <>
-                <div className="about-right">
-                    <div className="detail-container">
-                        <div className="detailHeading">
-                            <h3>Upgrade to become an agent</h3>
-                        </div>
-                        <form>
-                            <div>
-                                <div>
-                                    <label name="body" htmlFor="body" className="detail-info">Your Name</label>
-                                    
+const Upgrade = () => {
+  const navigate = useNavigate();
 
-                                    <input className="input"  style={textArea} />
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    Toast.success(
+      "We have recieved your application. We will get back to you soon!!"
+    );
+    navigate("/");
+  };
 
-                                </div>
-                                <div>
-                                    <label className="detail-info">Phone Number</label>
-                                    <input className="input" type="number" />
-                                </div>
-                                <div>
-                                    <label className="detail-info">Email</label>
-                                    <input className="input" type="text" />
-                                </div>
-                                <div>
-                                    <label className="detail-info">Major</label>
-                                    <input className="input" type="text" />
-                                </div>
-                                <div>
-                                    <label className="detail-info">City</label>
-                                    <input className="input" type="text" size="10"/>
-                                </div>
-                                <div>
-                                    <label className="detail-info">Provience </label>
-                                    <input className="input" type="text" size="10"/>
-                                </div>
-                                <div>
-                                    <label className="detail-info">Provience </label>
-                                    <input className="input" type="textarea" rows="4" cols="50" />
-                                </div>
-                                <div className="detailBtn">
-                                    <button type="submit"><a href="/">Apply to become an agent !</a></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </>
-        )
-    }
-}
+  return (
+    <>
+      <div className="Upcontainer">
+        <main className="Up-container">
+          <div className="Upheading-primary">Apply to become an agent</div>
+          <form onSubmit={handleSubmit} className="Up-form">
+            <label htmlFor="name" className="Up-label">
+              Name:
+            </label>
+            <input type="text" name="name" className="Up-input" />
 
+            <label htmlFor="email" className="Up-label">
+              Email:
+            </label>
+            <input type="email" name="email" className="Up-input" />
+
+            <label htmlFor="why" className="Up-label">
+              Why do you want to become an agent?
+            </label>
+            <textarea type="text" name="why" className="Up-input" />
+
+            <label htmlFor="bio" className="Up-label">
+              Enter yout bio for your profile:
+            </label>
+            <textarea type="text" name="bio" className="Up-input" />
+
+            <label htmlFor="city" className="Up-label">
+              City:
+            </label>
+            <input type="text" name="city" className="Up-input" />
+            <label htmlFor="province" className="Up-label">
+              Province:
+            </label>
+            <input type="text" name="province" className="Up-input" />
+
+            <button type="submit" className="Up-button">
+              Apply
+            </button>
+          </form>
+        </main>
+      </div>
+    </>
+  );
+};
 
 export default Upgrade;

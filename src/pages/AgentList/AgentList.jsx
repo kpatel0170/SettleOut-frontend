@@ -42,13 +42,13 @@ const AgentsList = () => {
     
     <div className="grid grid-rows pl-9 pr-9 ml-5 mr-5">
       {agentList.map((agent) => (
-        <div key={agent.id} className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-lg font-medium mb-2">{agent.fullName}</h2>
+        <div key={agent.id} className="bg-white shadow-md rounded-lg p-6 mb-7">
+          <div className="text-4xl text-gray-900 font-medium mb-2">{agent.fullName}</div>
           <p className="text-gray-600 mt-2">{agent.bio}</p>
           <div className="flex justify-between mt-4">
             <div className="flex items-center">
-              <span className="text-gray-600">Rating:</span>
-              <span className="ml-1 text-yellow-400">{agent.ratings}</span>
+              <span className="text-2xl text-gray-600">Rating:</span>
+              <span className="text-2xl font-bold ml-1 text-yellow-400">{agent.ratings}</span>
             </div>
             <div className="flex space-x-4">
               <button

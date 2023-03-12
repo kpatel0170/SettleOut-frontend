@@ -12,6 +12,8 @@ import Button from "./components/Button";
 import AgentList from "./pages/AgentList";
 import ADBoard from "./pages/ADBoard";
 import FeedbackForm from "./pages/FeedbackForm";
+import Task from "./pages/Task/Task";
+import StudentTask from "./pages/Task/StudentTask";
 
 import { Context } from "./context/Context";
 import { useContext } from "react";
@@ -48,11 +50,11 @@ function App() {
             path="/login"
             element={user ? <Homepage /> : <Login />}
           />
-          <Route exact path="/Upgrade" element={<Upgrade />} />
+          <Route exact path="/upgrade" element={<Upgrade />} />
           <Route exact path="/payment" element={<Payment />} />
           <Route exact path="/details" element={<UserDetail />} />
           <Route exact path="/feedback" element={<FeedbackForm />} />
-          <Route exact path="/About" element={<About />} />
+          <Route exact path="/aboutus" element={<About />} />
           <Route exact path="/preArrival" element={<PreArrival />} />
           <Route exact path="/membership" element={<Membership />} />
           <Route exact path="/payment" element={<Payment />} />
@@ -60,6 +62,7 @@ function App() {
 
           <Route exact path="/agent-list" element={<AgentList />} />
           <Route exact path="/agent-board" element={<ADBoard />} />
+          <Route path="/tasks" element={<StudentTask />} />
 
           {/* <Route
           path="/student"

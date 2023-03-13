@@ -146,7 +146,7 @@ export default function StudentTask() {
       </div>
       <div className="max-w-md mx-auto mt-4">
         {todos.length === 0 && (
-          <div style={{ textAlign: "center",paddingBottom: "180px"}}>
+          <div style={{ textAlign: "center", paddingBottom: "180px" }}>
             <p>No tasks found.</p>
             <p>Please check back later.</p>
           </div>

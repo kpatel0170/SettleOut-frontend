@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Context } from "../../context/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 import Toast from "../../api/toast";
-// import Logo from "../assets/Globalblac.png";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -19,16 +18,21 @@ const Navbar = () => {
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       <div>
-        {/* <img className='navbarimg' style={{height: "15q0px"}} src={Logo} alt="Logo" />             */}
+        <img
+          className="navbarimg"
+          style={{ width: "200px", marginLeft: "20px" }}
+          src="https://cdn.discordapp.com/attachments/1063578363505152081/1084705078012813372/settleoutLogo.png"
+          alt="Logo"
+        />
       </div>
       <div>
         <ul className="Navbuttons" style={{ display: "flex" }}>
           {user && (
             <>
               {user.accountType === "public" && (
-                <a href="/Upgrade">Upgrade to agent</a>
+                <a href="/upgrade">Apply for agent</a>
               )}
-              <a href="/About">About Us</a>
+              <a href="/aboutus">About Us</a>
               {/* <a href="">
                 Contact Us
               </a> */}

@@ -10,19 +10,19 @@ const Footer = () => {
         </h3>
 
         <p className="footer-links">
-          <a href="/Home" className="link-1">
-            Home
+          <a href="/" className="link-1">
+            Home &nbsp;
           </a>
 
-          <a href="/Blog">Blog</a>
+          <a href="/Blog">Blog &nbsp;</a>
 
-          <a href="/Pricing">Pricing</a>
+          <a href="#">Careers &nbsp;</a>
 
-          <a href="/About">About</a>
+          <a href="/aboutus">About Us &nbsp;</a>
 
-          <a href="?Faq">Faq</a>
+          <a href="#">FAQ &nbsp;</a>
 
-          <a href="/Contact">Contact</a>
+          <a href="/contactus">Contact Us &nbsp;</a>
         </p>
 
         <p className="footer-company-name">SettleOut © 2023</p>

@@ -1,14 +1,11 @@
 .Navbuttons a {
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #4F55C4;
-    padding: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f55c4;
+  padding: 10px;
+  padding-top: 0;
   font-weight: bold;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
 }
-
-/*img {
-    height: 100px;
-}*/

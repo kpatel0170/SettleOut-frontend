@@ -12,8 +12,7 @@ import Button from "./components/Button";
 import AgentList from "./pages/AgentList";
 import ADBoard from "./pages/ADBoard";
 import FeedbackForm from "./pages/FeedbackForm";
-// import Task from "./pages/Task/Task";
-import StudentTask from "./pages/Task/StudentTask";
+import StudentTask from "./pages/StudentTask";
 
 import { Context } from "./context/Context";
 import { useContext } from "react";
@@ -48,21 +47,84 @@ function App() {
           <Route
             exact
             path="/login"
-            element={user ? <Homepage /> : <Login />}
+            element={token && user ? <Login /> : <Login />}
           />
-          <Route exact path="/upgrade" element={<Upgrade />} />
-          <Route exact path="/payment" element={<Payment />} />
-          <Route exact path="/details" element={<UserDetail />} />
-          <Route exact path="/feedback" element={<FeedbackForm />} />
-          <Route exact path="/aboutus" element={<About />} />
-          <Route exact path="/preArrival" element={<PreArrival />} />
-          <Route exact path="/membership" element={<Membership />} />
-          <Route exact path="/payment" element={<Payment />} />
-          <Route exact path="/signup" element={<Signup />} />
+          <Route
+            exact
+            path="/upgrade"
+            element={token && user ? <Upgrade /> : <Login />}
+          />
+          <Route
+            exact
+            path="/payment"
+            element={token && user ? <Payment /> : <Login />}
+          />
+          <Route
+            exact
+            path="/details"
+            element={token && user ? <UserDetail /> : <Login />}
+          />
+          <Route
+            exact
+            path="/feedback"
+            element={token && user ? <FeedbackForm /> : <Login />}
+          />
+          <Route
+            exact
+            path="/aboutus"
+            element={token && user ? <About /> : <Login />}
+          />
+          <Route
+            exact
+            path="/preArrival"
+            element={token && user ? <PreArrival /> : <Login />}
+          />
+          <Route
+            exact
+            path="/membership"
+            element={token && user ? <Membership /> : <Login />}
+          />
+          <Route
+            exact
+            path="/payment"
+            element={token && user ? <Payment /> : <Login />}
+          />
+          <Route
+            exact
+            path="/signup"
+            element={token && user ? <Signup /> : <Signup />}
+          />
 
-          <Route exact path="/agent-list" element={<AgentList />} />
-          <Route exact path="/agent-board" element={<ADBoard />} />
-          {/* <Route path="/tasks" element={<StudentTask />} /> */}
+          <Route
+            exact
+            path="/"
+            element={
+              token && user ? (
+                user.accountType === "public" ? (
+                  <Homepage />
+                ) : (
+                  <ADBoard />
+                )
+              ) : (
+                <Login />
+              )
+            }
+          />
+
+          <Route
+            exact
+            path="/agent-list"
+            element={token && user ? <AgentList /> : <Login />}
+          />
+          <Route
+            exact
+            path="/agent-board"
+            element={token && user ? <ADBoard /> : <Login />}
+          />
+          <Route
+            path="/tasks"
+            element={token && user ? <StudentTask /> : <Login />}
+          />
 
           {/* <Route
           path="/student"

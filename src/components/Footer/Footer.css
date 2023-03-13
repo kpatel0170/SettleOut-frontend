@@ -16,7 +16,7 @@ section {
 }
 
 .footer-distributed {
-  background: #a5a2a2;
+  background: #000000;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
@@ -67,9 +67,9 @@ section {
 }
 
 .footer-distributed .footer-company-name {
-  color: #222;
+  color: #696969;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bolder;
   margin: 0;
 }
 
@@ -113,12 +113,12 @@ section {
 }
 
 .footer-distributed .footer-center p a {
-  color: rgb(18, 78, 122);
+  color: #1e6aac;
   text-decoration: none;
 }
 
 .footer-distributed .footer-links a:before {
-  content: "|";
+  content: " | ";
   font-weight: 300;
   font-size: 20px;
   left: 0;

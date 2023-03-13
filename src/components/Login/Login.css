@@ -126,11 +126,6 @@ a {
 }
 
 .welcome-container {
-  background: #eeeeee75;
-  background-image: url("https://media.discordapp.net/attachments/1072237976047845517/1077666951586926653/17973908.jpg?width=979&height=559");
-
-  background-size: cover;
-  background-position: center;
   grid-column: 2 / 3;
   grid-row: 1;
   background-size: cover;

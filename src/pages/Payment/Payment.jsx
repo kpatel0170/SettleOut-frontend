@@ -33,7 +33,6 @@ function Payment() {
       data: data,
     })
       .then(({ DATA = {}, MESSAGE }) => {
-        console.log('herre')
         navigate("/preArrival");
       })
       .catch((error) => {
@@ -52,18 +51,15 @@ function Payment() {
   const cardnumber = (inputtxt) => {
     var matches = inputtxt.match(/(\d+)/);
     var cardno = "";
-    console.log(matches);
     if (matches) {
       cardno = inputtxt.split(" - ").join("");
     }
-    console.log(cardno);
     var cardtype1 = card.cardtype;
     //var visa = /^(?:4[0-9]{16}(?:[0-9]{3})?)$/;
     var visa = /^(?:4[0-9]{2}?)$/;
     var mastercardRegEx = /^(?:5[1-5][0-9]{3})$/;
     var amexpRegEx = /^(?:3[47][0-9]{3})$/;
     var discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{5})$/;
-    console.log(visa.test(cardno));
     if (visa.test(cardno) === true) {
       //eg:4651970022334445
       cardtype1 = "far fa fa-3x fa-cc-visa  carddetail-cardtype";

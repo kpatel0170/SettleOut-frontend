@@ -49,7 +49,6 @@ function Login() {
       })
         .then(({ DATA = {}, MESSAGE }) => {
           let { token, ...data } = DATA;
-          console.log(token + "-token");
           dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
           Toast.success(MESSAGE);
           navigate("/");

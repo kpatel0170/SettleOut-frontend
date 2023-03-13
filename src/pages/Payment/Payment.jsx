@@ -136,7 +136,7 @@ function Payment() {
                   type="text"
                   name="expiry-data"
                   className="cardetails-input"
-                  placeholder="mm / yy"
+                  placeholder="mm/yy"
                   onChange={onChangeExp}
                   value={expriy_format(card.expirydt)}
                 />

@@ -12,7 +12,7 @@ import Button from "./components/Button";
 import AgentList from "./pages/AgentList";
 import ADBoard from "./pages/ADBoard";
 import FeedbackForm from "./pages/FeedbackForm";
-import Task from "./pages/Task/Task";
+// import Task from "./pages/Task/Task";
 import StudentTask from "./pages/Task/StudentTask";
 
 import { Context } from "./context/Context";
@@ -62,7 +62,7 @@ function App() {
 
           <Route exact path="/agent-list" element={<AgentList />} />
           <Route exact path="/agent-board" element={<ADBoard />} />
-          <Route path="/tasks" element={<StudentTask />} />
+          {/* <Route path="/tasks" element={<StudentTask />} /> */}
 
           {/* <Route
           path="/student"

@@ -2,7 +2,7 @@ import { Store } from "react-notifications-component";
 
 const config = {
   insert: "top",
-  container: "bottom-right",
+  container: "top-right",
   animationIn: ["animate__animated", "animate__fadeIn"],
   animationOut: ["animate__animated", "animate__fadeOut"],
   isMobile: true,

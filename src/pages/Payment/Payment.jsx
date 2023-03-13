@@ -4,6 +4,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Context } from "../../context/Context";
 import commonApi from "../../api/common";
+import Toast from "../../api/toast";
 
 function Payment() {
   const [card, setCard] = useState({
@@ -36,8 +37,7 @@ function Payment() {
         navigate("/preArrival");
       })
       .catch((error) => {
-        navigate("/");
-        console.error(error);
+        Toast.danger(error(error));
       });
   };
   const onChange = (e) => {
@@ -102,7 +102,7 @@ function Payment() {
     <>
       <div className="cardetails-wrapper">
         <div className="cardetails-payment">
-          <h2 className="carddetails-head">Card Details</h2>
+          <div className="carddetails-head">Payment Details</div>
 
           <div className="cardetails-form">
             <div className="cardetails-card cardetails-space cardetails-icon-relative">
@@ -139,7 +139,7 @@ function Payment() {
                 <i className="far fa-calendar-alt"></i>
               </div>
               <div className="cardetails-card-item cardetails-icon-relative">
-                <label className="cardetails-label">Cvv:</label>
+                <label className="cardetails-label">CVV:</label>
                 <input
                   type="password"
                   className="cardetails-input"
@@ -172,6 +172,5 @@ function Payment() {
     </>
   );
 }
-
 
 export default Payment;

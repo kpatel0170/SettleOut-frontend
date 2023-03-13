@@ -4,6 +4,7 @@ import "../../components/Signup/Signup.css";
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 import commonApi from "../../api/common";
+import Toast from "../../api/toast";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
@@ -17,7 +18,7 @@ const PreArrival = () => {
   const { dispatch, user } = useContext(Context);
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -35,7 +36,8 @@ const PreArrival = () => {
       },
     })
       .then(({ DATA = {}, MESSAGE }) => {
-        navigate("/Success");
+        Toast.success("The form have been successfully submitted");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -46,7 +48,7 @@ const PreArrival = () => {
     <>
       <Navbar />
       <div className="prearrival-box">
-        <h2>Pre-Arrival Form</h2>
+        <div className="prearr-head">Pre-Arrival Form</div>
         <form onSubmit={handleSubmit}>
           <div className="user-box">
             <input
@@ -56,7 +58,7 @@ const PreArrival = () => {
               onChange={(event) => setTicket(event.target.value)}
               required=""
             />
-            <label>INRA Number:</label>
+            <label>INR Number:</label>
             {errors.Ticket && (
               <div className="prearrival-error">{errors.Ticket}</div>
             )}
@@ -70,7 +72,9 @@ const PreArrival = () => {
               required=""
             />
             <label>Arrival Date</label>
-            {errors.date && <div className="prearrival-error">{errors.date}</div>}
+            {errors.date && (
+              <div className="prearrival-error">{errors.date}</div>
+            )}
           </div>
           <div className="user-box">
             <input
@@ -81,7 +85,9 @@ const PreArrival = () => {
               required=""
             />
             <label>Arrival Time</label>
-            {errors.time && <div className="prearrival-error">{errors.time}</div>}
+            {errors.time && (
+              <div className="prearrival-error">{errors.time}</div>
+            )}
           </div>
           <div className="user-box">
             <input
@@ -92,7 +98,9 @@ const PreArrival = () => {
               required=""
             />
             <label>City:</label>
-            {errors.city && <div className="prearrival-error">{errors.city}</div>}
+            {errors.city && (
+              <div className="prearrival-error">{errors.city}</div>
+            )}
           </div>
           <div className="user-box">
             <input
@@ -108,13 +116,10 @@ const PreArrival = () => {
             )}
           </div>
 
-          <a href="/" type="submit" className="prearrival-button">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Submit
-          </a>
+          <button type="submit" className="prearrival-button">
+            {" "}
+            Submit{" "}
+          </button>
         </form>
       </div>
       <Footer />

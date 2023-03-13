@@ -43,7 +43,6 @@
   font-size: 5rem;
 }
 .input-text {
-  font-family: inherit;
   font-size: 1.8rem;
   padding: 3rem 5rem 1rem 2rem;
   border: none;
@@ -63,7 +62,6 @@
   color: #fff;
   border-radius: 1rem;
   cursor: pointer;
-  font-family: inherit;
   font-weight: 500;
 }
 .btn-details {

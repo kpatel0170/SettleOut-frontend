@@ -40,7 +40,7 @@ const AgentsList = () => {
     <>
     <Navbar />
     
-    <div className="grid grid-rows pl-9 pr-9 ml-5 mr-5">
+    <div className="grid grid-rows pl-9 pr-9 ml-5 mr-5 pt-20">
       {agentList.map((agent) => (
         <div key={agent.id} className="bg-white shadow-md rounded-lg p-6 mb-7">
           <div className="text-4xl text-gray-900 font-medium mb-2">{agent.fullName}</div>

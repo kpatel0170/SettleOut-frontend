@@ -1,98 +1,142 @@
-import React from "react";
-import { Fragment } from "react";
-import "./ADBoard.css";
-
-
-const agentData = [
-  {
-      id: 1,
-      name: "Om Dalwadi",
-      bio: "BSc(Honors) in Computer Science.",
-      rating: 4.5,
-      feedbacks: ["Great agent!", "Very professional"],
-  },
-  {
-      id: 2,
-      name: "Kartik Patel",
-      bio: "BSc in Computer Science.",
-      rating: 3.8,
-      feedbacks: ["Could improve communication"],
-  },
-  {
-      id: 3,
-      name: "Yug Shah",
-      bio: "BSc(Honors) in Computer Science.",
-      rating: 4.2,
-      feedbacks: [
-          "Very knowledgeable about the market",
-          "Always available to answer questions",
-      ],
-  },
-];
-
+import React, { useState, useEffect, useContext } from "react";
+import commonApi from "../../api/common";
+import Navbar from "../../components/Navbar/";
+import { Context } from "../../context/Context";
+import { useNavigate } from "react-router-dom";
 
 const ADBoard = () => {
-  const handleSelectAgent = (id) => {
-      console.log(`Agent with ID ${id} selected`);
-  };
+  const [studentList, setStudentList] = useState([]);
+  const { user } = useContext(Context);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const getTasks = async () => {
+      await commonApi({
+        action: "listTasks",
+        data: {
+          query: {
+            agentId: user._id,
+          },
+          options: {
+            populate: [
+              {
+                path: "userId",
+                model: "user",
+              },
+              {
+                path: "agentId",
+                model: "user",
+              },
+            ],
+          },
+        },
+      })
+        .then(({ DATA = {}, MESSAGE }) => {
+          setStudentList(DATA.data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
+    getTasks();
+  }, []);
 
-  const handleViewProfile = (id) => {
-      const agent = agentData.find((agent) => agent.id === id);
-      const feedback = agent.feedbacks.join(", ");
+  // const studentData = [
+  //   {
+  //     id: 1,
+  //     name: "Jhon Dane
+  //     arrivalDate: "20-04-2023",
+  //     Province: "Saskatchewan",
+  //     City: "Regina",
+  //     status: "In-progress",
+  //   },
+  //   {
+  //     id: 1,
+  //     name: "Klaus Mickky",
+  //     arrivalDate: "20-04-2023",
+  //     Province: "Saskatchewan",
+  //     City: "Regina",
+  //     status: "In-progress",
+  //   },
+  // ];
 
-      const feedbackContainer = document.createElement("div");
-      feedbackContainer.innerHTML = `
-    <h2 class="text-lg font-medium mb-2">${agent.name} Feedback</h2>
-    <p class="text-gray-600">${feedback}</p>
-    <button
-      class="bg-blue-500 text-white px-3 py-2 rounded mt-4"
-      onclick="this.parentElement.remove()"
-    >
-      Go Back
-    </button>
-  `;
-
-      document.body.appendChild(feedbackContainer);
-  };
-
-
-return (
-<>
-<div className="container">
-    <ul className="cards">
-    {agentData.map((agent) => (
-      <li className="card" key={agent.id}>
-     
-        <div>
-          <div className="row">
-            <div className="column"> </div>
-            <div className="column">
-              <h3 className="card-title"><b>{agent.name}</b></h3>
-              <div>
-               <h4>Ratings: {agent.rating}</h4>
+  return (
+    <>
+    <div>
+      <Navbar />
+      <div>
+        {studentList.length > 0 ? (
+          studentList.map((tasks) => (
+            <span key={tasks._id}>
+              <div
+                className="shadow-md"
+                style={{
+                  display: "grid",
+                  margin: "3%",
+                  width: "80%",
+                  padding: "30px",
+                }}
+              >
+                <div style={{ fontSize: "1.5em" }}>{tasks.userId.fullName}</div>
+                <div>
+                  arrival date:{" "}
+                  <strong>{tasks.userId?.demographics?.arrivalDate}</strong>
+                </div>
+                <div
+                  style={{ justifyContent: "space-between", display: "flex" }}
+                >
+                  <div>
+                    <span style={{ marginRight: "30px" }}>
+                      Province:{" "}
+                      <strong>{tasks.userId?.demographics?.province}</strong>
+                    </span>
+                    <span>
+                      City: <strong>{tasks.userId?.demographics?.city}</strong>
+                    </span>
+                  </div>
+                  <div>
+                    {/* <span style={{ backgroundColor: "green", padding: '10px', borderRadius: "10px", color: "white" }}> */}
+                    <a
+                      style={{
+                        border: "0px",
+                        backgroundColor: "green",
+                        padding: "10px",
+                        borderRadius: "10px",
+                        color: "white",
+                      }}
+                      onClick={() => {
+                        navigate("/Tasks", { state: { id: tasks._id } });
+                      }}
+                    >
+                      <button>Tasks</button>
+                    </a>
+                    {/* </span> */}
+                  </div>
+                </div>
               </div>
-              <br></br>
-            </div>
-          </div>
-          <div className="card-content">
-            <p>{agent.bio}</p>
-          </div>
-        </div>
-        <div className="card-link-wrapper">
-          <a href=""  onClick={() => handleSelectAgent(agent.id)} className="wp-block-button__link has-base-color has-text-color has-text-align-center wp-element-button card-link">Appoient</a>
-        </div>
-      </li>
-      ))}
-      
-    </ul>
-   
-  </div>
-
-
-</>
-
-
-    );
+            </span>
+          ))
+        ) : (
+          <span
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "30px",
+              backgroundColor: "blue",
+              color: "white",
+              width: "30%",
+              marginLeft: "30%",
+              borderRadius: "15px",
+            }}
+          >
+            No appointments yet
+          </span>
+        )}
+      </div>
+    </div>
+    </>
+  );
 };
 
 export default ADBoard;
+

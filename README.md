@@ -15,6 +15,7 @@
 2. Install dependencies: `npm install --force`
 3. Start the server: `npm start`
 4. Navigate to `http://localhost:3000` in your browser to view the API documentation.
+5. We have deployed our website on render platform and here is the link: https://settleout.onrender.com/
 
 ## Technologies Used
 

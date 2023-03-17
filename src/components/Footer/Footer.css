@@ -10,15 +10,15 @@ section {
 }
 
 .footer-distributed {
+  margin-top: 40px;
   background: #000000;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
   text-align: left;
   font: bold 16px sans-serif;
-  padding: 55px 50px;
- top:100%;
- position: absolute;
+  padding: 50px 50px;
+  position: absolute;
 }
 
 .footer-distributed .footer-left,

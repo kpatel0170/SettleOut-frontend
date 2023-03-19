@@ -6,7 +6,7 @@ function FeedbackForm  ({ featured = false, children = null }){return (
     <div className="wrapper">
   <h2>Feedback Form</h2>
   <div id="error_message"></div>
-  <form id="myform" onsubmit="return validate();">
+  <form id="myform">
     <div className="input_field">
         <input type="text" placeholder="First Name" id="fname"></input>
     </div>
@@ -22,14 +22,11 @@ function FeedbackForm  ({ featured = false, children = null }){return (
     <div className="input_field">
         <textarea placeholder="Your Feedback" id="yourfeedback"></textarea>
     </div>
-    <div className="btn">
-        <input type="submit"></input>
+    <div className="btn-feedback">
+        <button type="submit"><a href='/' style={{color: "white"}}>Submit</a></button>
     </div>
   </form>
 </div>
-
-
-
     </>
 )
 }

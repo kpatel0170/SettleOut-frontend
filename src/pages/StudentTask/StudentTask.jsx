@@ -166,9 +166,9 @@ export default function StudentTask() {
             </ul>
             {todos.every((todo) => todo.status) && (
               <div style={{ textAlign: "center" }}>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <a href="/feedback" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                   Give Feedback
-                </button>
+                </a>
               </div>
             )}
           </>

@@ -5,7 +5,7 @@
     box-sizing: border-box;
     outline: none;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%,-50%);
     max-width: 350px;
@@ -41,7 +41,7 @@
     height: 80px;
   }
   
-  .wrapper .btn input[type="submit"]{
+  .wrapper .btn-feedback{
     border: 0px;
     margin-top: 5px;
     padding: 5px;

@@ -18,6 +18,10 @@ const apiList = {
       url: () => "user/findAll",
       method: "post",
     },
+    agentProfile: {
+      url: () => "user/agprofile",
+      method: "post",
+    },
     // Payment
     createTransaction:{
       url:()=>"transaction/create",

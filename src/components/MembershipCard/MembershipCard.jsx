@@ -55,7 +55,7 @@ function MembershipCard  ({
       {/* CTA */}
       <Button featured={featured} onClick={()=>
         handleSubmit(_id,price)
-      }>Proceec to Pay</Button>
+      }>Proceed to Pay</Button>
     </div>
   </div>
 );

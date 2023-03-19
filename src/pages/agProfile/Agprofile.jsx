@@ -5,7 +5,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const Agprofile = (user) => {
     const { state } = useLocation();
-    console.log(state.user);
     const [agent, setAgent] = useState(state.user);
     return (
         <div>

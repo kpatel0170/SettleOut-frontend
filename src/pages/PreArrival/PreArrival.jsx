@@ -19,8 +19,37 @@ const PreArrival = () => {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+
+  
+  
+
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+    
+      // Validate form fields
+      const errors = {};
+      if (!Ticket) {
+        errors.Ticket = "Please enter INR number";
+      }
+      if (!date) {
+        errors.date = "Please select Valid Arrival date";
+      }
+      if (!time) {
+        errors.time = "Please select arrival time";
+      }
+      if (!city) {
+        errors.city = "Please enter city";
+      }
+      if (!province) {
+        errors.province = "Please enter province";
+      }
+    
+      // If there are errors, set the state and exit early
+      if (Object.keys(errors).length > 0) {
+        setErrors(errors);
+        return;
+      }
 
     await commonApi({
       action: "updateProfile",
@@ -51,6 +80,7 @@ const PreArrival = () => {
         <div className="prearr-head">Pre-Arrival Form</div>
         <form onSubmit={handleSubmit}>
           <div className="user-box">
+          <label>INR Number:</label>
             <input
               type="text"
               name="Ticket"
@@ -58,12 +88,13 @@ const PreArrival = () => {
               onChange={(event) => setTicket(event.target.value)}
               required=""
             />
-            <label>INR Number:</label>
+            
             {errors.Ticket && (
-              <div className="prearrival-error">{errors.Ticket}</div>
+              <div className="prearrival-error error">{errors.Ticket}</div>
             )}
           </div>
           <div className="user-box">
+          <label>Arrival Date</label>
             <input
               type="date"
               name="date"
@@ -71,12 +102,13 @@ const PreArrival = () => {
               onChange={(event) => setdate(event.target.value)}
               required=""
             />
-            <label>Arrival Date</label>
+            
             {errors.date && (
-              <div className="prearrival-error">{errors.date}</div>
+              <div className="prearrival-error error">{errors.date}</div>
             )}
           </div>
           <div className="user-box">
+          <label>Arrival Time</label>
             <input
               type="time"
               name="time"
@@ -84,12 +116,13 @@ const PreArrival = () => {
               onChange={(event) => settime(event.target.value)}
               required=""
             />
-            <label>Arrival Time</label>
+            
             {errors.time && (
-              <div className="prearrival-error">{errors.time}</div>
+              <div className="prearrival-error error">{errors.time}</div>
             )}
           </div>
           <div className="user-box">
+          <label>City:</label>
             <input
               type="text"
               name="city"
@@ -97,12 +130,13 @@ const PreArrival = () => {
               onChange={(event) => setCity(event.target.value)}
               required=""
             />
-            <label>City:</label>
+            
             {errors.city && (
-              <div className="prearrival-error">{errors.city}</div>
+              <div className="prearrival-error error">{errors.city}</div>
             )}
           </div>
           <div className="user-box">
+          <label>Province:</label>
             <input
               type="text"
               name="province"
@@ -110,9 +144,9 @@ const PreArrival = () => {
               onChange={(event) => setProvince(event.target.value)}
               required=""
             />
-            <label>Province:</label>
+            
             {errors.province && (
-              <div className="prearrival-error">{errors.province}</div>
+              <div className="prearrival-error error">{errors.province}</div>
             )}
           </div>
 

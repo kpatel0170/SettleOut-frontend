@@ -18,6 +18,7 @@
 
 .prearrival-box .user-box {
   position: relative;
+  margin-top: 20px;
 }
 
 .prearrival-box .user-box input {
@@ -26,14 +27,14 @@
   font-size: 16px;
   font-weight: bold;
   color: #242020;
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   border-radius: 15px;
   border-bottom: 1px solid #fff;
   outline: none;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 .prearrival-box .user-box label {
-  position: absolute;
+   
   top: 0;
   left: 0;
   padding: 10px 0;
@@ -43,10 +44,11 @@
   transition: 0.5s;
 }
 
-.prearrival-box .user-box input:focus ~ label,
-.prearrival-box .user-box input:valid ~ label {
+.prearrival-box .user-box label,
+.prearrival-box .user-box label {
   top: -20px;
   left: 0;
+  padding-top: 10px;
   color: #1a53bd;
   font-size: 15px;
   font-weight: bold;
@@ -68,4 +70,8 @@
   margin-top: 20px;
   text-align: center;
   letter-spacing: 4px;
+}
+
+.prearrival-error.error {
+  color: red;
 }

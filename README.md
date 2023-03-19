@@ -79,6 +79,8 @@ Below is the directory structure of the project:
 │   |            ├── AgentList.css
 │   |            ├── AgentList.jsx
 │   |            └── index.jsx
+|   |     ├── agProfile/
+│   |            ├── Agprofile.jsx
 |   |     ├── Cards/
 │   |            ├── Cards.jsx
 │   |            └── index.jsx

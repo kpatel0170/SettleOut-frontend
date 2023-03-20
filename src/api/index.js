@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 import Toast from "./toast";
 
-const baseUrl = "http://localhost:5000/";
+const baseUrl = "https://settleout-backend-production.up.railway.app/";
 const GET = "GET";
 const DELETE = "DELETE";
 const POST = "POST";

@@ -34,6 +34,7 @@ function Payment() {
       data: data,
     })
       .then(({ DATA = {}, MESSAGE }) => {
+        Toast.success("Payment Sucessfully Sublited");
         navigate("/preArrival");
       })
       .catch((error) => {

@@ -1,4 +1,4 @@
-# SettleOut
+# SettleOut - Frontend
 
 
 ## Table of Contents

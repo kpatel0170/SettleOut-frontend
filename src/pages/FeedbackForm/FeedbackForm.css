@@ -1,6 +1,3 @@
-
-
-
 .wrapper{
     box-sizing: border-box;
     outline: none;
@@ -13,7 +10,8 @@
     background: #fff;
     padding: 25px;
     border-radius: 5px;
-    box-shadow: 4px 4px 4px 4px rgb(187, 192, 197); 
+    box-shadow: 4px 4px 4px 4px rgb(187, 192, 197);
+    margin-top: 100px;
   }
   
   .wrapper h2{

@@ -13,6 +13,7 @@ import AgentList from "./pages/AgentList";
 import ADBoard from "./pages/ADBoard";
 import FeedbackForm from "./pages/FeedbackForm";
 import StudentTask from "./pages/StudentTask";
+import ContactUs from "./pages/ContactUs";
 
 import { Context } from "./context/Context";
 import { useContext } from "react";
@@ -100,6 +101,11 @@ function App() {
                     path = "/signup"
                     element = { token && user ? < Signup /> : < Signup /> }
                 />
+                <Route 
+                    exact 
+                    path = "/contactus"
+                    element = { token && user ? < ContactUs /> : < ContactUs /> }
+                />                
 
                 <Route
                     exact

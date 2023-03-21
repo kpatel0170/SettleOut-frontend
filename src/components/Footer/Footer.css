@@ -2,15 +2,14 @@ section {
   width: 100%;
   display: inline-block;
   background: #827d7d;
-  height: 50vh;
+  /* height: 50vh; */
   text-align: center;
   font-size: 22px;
   font-weight: 700;
-  text-decoration: underline;
 }
 
 .footer-distributed {
-  margin-top: 40px;
+  margin-top: 0px;
   background: #000000;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;

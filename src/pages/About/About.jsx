@@ -12,13 +12,13 @@ function About({ featured = false, children = null }) {
           <section>
             <div class="title">
               <h1>Settle Out</h1>
-              <h3>Settle in with ease, spread your wings with us!</h3>
+              <h3>Settle in with ease and spread your wings!</h3>
             </div>
           </section>
 
           <section>
             <div class="parallax-one">
-              <h2>New commers to Canada</h2>
+              <h2>Newcomers to Canada</h2>
             </div>
           </section>
 
@@ -38,8 +38,7 @@ function About({ featured = false, children = null }) {
                 students in Canada, 39.4% (153,360) are enrolled in colleges,
                 and 60.5% (235,419) in universities. In the last five years, the
                 number of international students had a significant increase of
-                69.8%, from 228,924 to 388,782. India is the country with the
-                most international students in Canada, totaling 180,275.{" "}
+                69.8%, from 228,924 to 388,782.{" "}
               </p>
             </div>
           </section>
@@ -54,9 +53,9 @@ function About({ featured = false, children = null }) {
             <div class="block">
               <p>
                 <span class="first-character ny">S</span>askatchewan is a
-                Canadian province that borders the United States to the south.
+                Canadian province that borders with the United States of America in the south.
                 Grassland covers its southern plains, and to the north are the
-                rugged rock of the Canadian Shield plateau, coniferous forests,
+                rugged rocks of the Canadian Shield plateau, coniferous forests,
                 rivers and lakes. Regina, the provincial capital, is home to the
                 Royal Saskatchewan Museum, with exhibits on natural history and
                 the people of Canada’s First Nations.

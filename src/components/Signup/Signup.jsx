@@ -101,14 +101,14 @@ const Signup = () => {
       <div className="container">
         <main className="signup-container">
           <div className="heading-signup">
-            Create new account<span className="custom-dot">.</span>
+            Create A New Account<span className="custom-dot">.</span>
           </div>
           <p className="text-mute">
             Already A Member? <a href="/login">Log in</a>
           </p>
           <form onSubmit={handleSubmit} className="signup-form">
             <label htmlFor="firstName" className="signup-label">
-              Firstname:
+              First Name:
             </label>
             <input
               type="text"
@@ -122,7 +122,7 @@ const Signup = () => {
             )}
 
             <label htmlFor="lastName" className="signup-label">
-              Lastname:
+              Last Name:
             </label>
             <input
               type="text"
@@ -135,7 +135,7 @@ const Signup = () => {
               <div className="signup-error">{errors.lastName}</div>
             )}
             <label htmlFor="email" className="signup-label">
-              Email:
+              email:
             </label>
             <input
               type="email"
@@ -147,7 +147,7 @@ const Signup = () => {
             {errors.email && <div className="signup-error">{errors.email}</div>}
 
             <label htmlFor="phone" className="signup-label">
-              Phone:
+              Phone Number:
             </label>
             <input
               type="text"
@@ -199,9 +199,9 @@ const Signup = () => {
           <h1 className="heading-secondary">
             Welcome to{" "}
             <span className="lg">
-              SettleOUT! <br></br>
+              SettleOut! <br></br>
             </span>
-            <span> Your One Stop Navigator for Your New Life In Regina</span>{" "}
+            <span> One Stop Navigator for Settling in Regina.</span>{" "}
           </h1>
           <br></br>
         </div>

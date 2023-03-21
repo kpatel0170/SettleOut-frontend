@@ -77,10 +77,10 @@ function Login() {
       <div className="container">
         <main className="login-container">
           <div className="heading-signup">
-            To Access Service LOGIN<span className="custom-dot">.</span>
+          Login to access your Account <span className="custom-dot">.</span>
           </div>
           <p className="text-mute">
-            If not a member? <a href="/signup">Sign Up</a>
+            Not a Member? <a href="/signup">Sign Up</a>
           </p>
           <form onSubmit={handleSubmit} className="login-form">
             <label htmlFor="email" className="login-label">
@@ -122,7 +122,7 @@ function Login() {
             </button>
             <br />
             <p className="text-mute">
-              If not a member? <a href="/signup">Sign Up</a>
+              Not a member? <a href="/signup">Sign Up</a>
             </p>
           </form>
         </main>
@@ -131,9 +131,9 @@ function Login() {
           <h1 className="heading-secondary">
             Welcome to{" "}
             <span className="lg">
-              SettleOUT! <br></br>
+              SettleOut! <br></br>
             </span>
-            <span> Your One Stop Navigator for Your New Life In Regina</span>{" "}
+            <span> One Stop Navigator for Settling in Regina.</span>{" "}
           </h1>
           <br></br>
         </div>

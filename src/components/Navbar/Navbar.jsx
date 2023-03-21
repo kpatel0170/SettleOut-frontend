@@ -30,14 +30,14 @@ const Navbar = () => {
           {user && (
             <>
               {user.accountType === "public" && (
-                <a href="/upgrade">Apply for agent</a>
+                <a href="/upgrade">Become an Agent</a>
               )}
               <a href="/aboutus">About Us</a>
               {/* <a href="">
                 Contact Us
               </a> */}
               <a href="" onClick={handleLogout}>
-                LogOut
+                Logout
               </a>
             </>
           )}

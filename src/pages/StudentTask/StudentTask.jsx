@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import commonApi from "../../api/common";
 import { useLocation } from "react-router-dom";
 
@@ -174,7 +173,6 @@ export default function StudentTask() {
           </>
         )}
       </div>
-      <Footer />
     </>
   );
 }

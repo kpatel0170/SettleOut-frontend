@@ -44,7 +44,7 @@ const Footer = () => {
         <div>
           <i className="fa fa-envelope"></i>
           <p>
-            <a href="mailto:support@settleout.com">support@company.com</a>
+            <a href="mailto:contactsettleout@gmail.com">contactsettleout@gmail.com</a>
           </p>
         </div>
       </div>
@@ -52,7 +52,7 @@ const Footer = () => {
       <div className="footer-right">
         <p className="footer-company-about">
           <span>About the company</span>
-          We are here to help you settle down in your new life in Regina!
+          At SettleOut, we are committed to providing top-quality services to our valued customers. Our team of agents is dedicated to ensuring that you receive the highest level of service. Thank you for choosing SettleOut and we look forward to serving you!
         </p>
       </div>
     </footer>

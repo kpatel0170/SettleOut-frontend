@@ -19,21 +19,36 @@ const Agprofile = (user) => {
                     Name: {agent.firstName} {agent.lastName}
                 </h2>
                 <div style={{ display: "flex" }}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>About:</h2>
+                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>
+                        About:
+                    </h2>
                     <p style={{ fontSize: "1.5em" }}>{agent.bio}</p>
                 </div>
                 <div style={{ display: "flex" }}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>Home Country:</h2>
+                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>
+                        Home Country:
+                    </h2>
                     <p style={{ fontSize: "1.5em" }}>{agent.homeCountry}</p>
                 </div>
-                <p style={{ fontSize: "1.5em", fontWeight: "500" }}>Agent verified: <b>{agent.isPhoneVerified ? "Yes" : "No"}</b></p>
+                <p style={{ fontSize: "1.5em", fontWeight: "500" }}>
+                    Verified: <b>{agent.isPhoneVerified ? "Yes" : "No"}</b>
+                </p>
                 <div style={{ display: "flex" }}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>Education:</h2>
-                    <p style={{ fontSize: "1.5em" }}>{agent.year}nd year, major: {agent.major}</p>
+                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>
+                        Education:
+                    </h2>
+                    <p style={{ fontSize: "1.5em" }}>
+                        Major: {agent.major},
+                        Year: {agent.year}
+                    </p>
                 </div>
                 <div style={{display: "flex"}}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "5px" }}>About:</h2>
-                    <p style={{ fontSize: "1.5em" }}><b style={{ color: "#FACC15" }}>{agent.ratings}</b></p>
+                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "5px" }}>
+                        Rating:
+                    </h2>
+                    <p style={{ fontSize: "1.5em" }}>
+                        <b style={{ color: "#FACC15" }}>{agent.ratings}</b>
+                    </p>
                 </div>
             </div>
         </div>

@@ -38,7 +38,7 @@ const ADBoard = () => {
         });
     };
     getTasks();
-  }, []);
+  }, [user._id]);
 
   // const studentData = [
   //   {
@@ -95,8 +95,8 @@ const ADBoard = () => {
                   </div>
                   <div>
                     {/* <span style={{ backgroundColor: "green", padding: '10px', borderRadius: "10px", color: "white" }}> */}
-                    <a
-                      style={{
+    
+                      <button style={{
                         border: "0px",
                         backgroundColor: "green",
                         padding: "10px",
@@ -105,10 +105,9 @@ const ADBoard = () => {
                       }}
                       onClick={() => {
                         navigate("/Tasks", { state: { id: tasks._id } });
-                      }}
-                    >
-                      <button>Tasks</button>
-                    </a>
+                      }}>
+                        Tasks
+                        </button>
                     {/* </span> */}
                   </div>
                 </div>
@@ -122,14 +121,17 @@ const ADBoard = () => {
               alignItems: "center",
               justifyContent: "center",
               padding: "30px",
-              backgroundColor: "blue",
-              color: "white",
+              color: "black",
               width: "30%",
               marginLeft: "30%",
+              marginTop: "30px",
               borderRadius: "15px",
+              fontSize: "30px",
+              borderBlockWidth: "3px"
+              
             }}
           >
-            No appointments yet
+            No Appointments Yet
           </span>
         )}
       </div>

@@ -47,6 +47,7 @@ a {
 }
 .text-mute {
   color: #aaa;
+  font-size: medium;
 }
 .heading-login {
   font-size: 30px;

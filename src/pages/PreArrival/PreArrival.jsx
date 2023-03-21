@@ -80,7 +80,7 @@ const PreArrival = () => {
         <div className="prearr-head">Pre-Arrival Form</div>
         <form onSubmit={handleSubmit}>
           <div className="user-box">
-          <label>INR Number:</label>
+          <label>Ticket Number (PNR):</label>
             <input
               type="text"
               name="Ticket"
@@ -94,7 +94,7 @@ const PreArrival = () => {
             )}
           </div>
           <div className="user-box">
-          <label>Arrival Date</label>
+          <label>Arrival Date:</label>
             <input
               type="date"
               name="date"
@@ -108,7 +108,7 @@ const PreArrival = () => {
             )}
           </div>
           <div className="user-box">
-          <label>Arrival Time</label>
+          <label>Arrival Time:</label>
             <input
               type="time"
               name="time"

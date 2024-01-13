@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ReactNotifications } from "react-notifications-component";
+import 'react-notifications-component/dist/theme.css';
+import 'animate.css/animate.min.css';
 
 import { Context } from "./context/Context";
 

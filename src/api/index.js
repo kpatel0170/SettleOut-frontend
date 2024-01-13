@@ -71,7 +71,7 @@ function handleError(error) {
   const { MESSAGE } = response.data || {};
 
   MESSAGE && Toast.error(MESSAGE);
-  
+
   return Promise.reject(error);
 }
 const fetchUrl = ({ type, url, data = {}, config = {} }) => {

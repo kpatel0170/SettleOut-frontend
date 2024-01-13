@@ -2,8 +2,6 @@ import React from "react";
 import "./Upgrade.css";
 import { useNavigate } from "react-router";
 import Toast from "../../api/toast";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 const Upgrade = () => {
   const navigate = useNavigate();
@@ -18,7 +16,6 @@ const Upgrade = () => {
 
   return (
     <>
-      <Navbar />
       <div className="Upcontainer">
         <main className="Up-container">
           <div className="Upheading-primary">Apply to become an agent</div>
@@ -58,7 +55,6 @@ const Upgrade = () => {
           </form>
         </main>
       </div>
-      <Footer />
     </>
   );
 };

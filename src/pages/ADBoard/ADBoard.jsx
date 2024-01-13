@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import commonApi from "../../api/common";
-import Navbar from "../../components/Navbar/";
 import { Context } from "../../context/Context";
 import { useNavigate } from "react-router-dom";
 
@@ -62,7 +61,6 @@ const ADBoard = () => {
   return (
     <>
     <div>
-      <Navbar />
       <div>
         {studentList.length > 0 ? (
           studentList.map((tasks) => (

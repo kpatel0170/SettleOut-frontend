@@ -4,6 +4,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Toast from "../../api/toast";
 import "./Navbar.css";
 
+// .Navbuttons a {
+//   margin: 10px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   color: #4f55c4;
+//   padding: 10px;
+//   padding-top: 0;
+//   font-weight: bold;
+//   font-size: 15px;
+// }
+
+
 const Navbar = () => {
   const { user, dispatch, token } = useContext(Context);
   const navigate = useNavigate();

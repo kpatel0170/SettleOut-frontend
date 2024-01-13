@@ -1,3 +1,9 @@
+import React, { useContext } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ReactNotifications } from "react-notifications-component";
+
+import { Context } from "./context/Context";
+
 import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
@@ -14,144 +20,55 @@ import ADBoard from "./pages/ADBoard";
 import FeedbackForm from "./pages/FeedbackForm";
 import StudentTask from "./pages/StudentTask";
 import ContactUs from "./pages/ContactUs";
+import Agprofile from "./pages/agProfile/Agprofile";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
-import { Context } from "./context/Context";
-import { useContext } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ReactNotifications } from "react-notifications-component";
-
-import "./App.css";
-import Agprofile from "./pages/agProfile/Agprofile.jsx";
 
 function App() {
-    const { user, dispatch, token } = useContext(Context);
-
-    return ( 
-        <>
-            <ReactNotifications />
-            <BrowserRouter>
-                <Routes>
-                <Route 
-                    exact
-                    path = "/"
-                    element = {
-                        token && user ? (
-                            user.accountType === "public" ? ( 
-                                <Homepage />
-                            ) : ( 
-                                <ADBoard />
-                            )
-                        ) : ( 
-                            <Login />
-                        )
-                    }
-                /> 
-                <Route 
-                    exact 
-                    path = "/login"
-                    element = { token && user ? < Login /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/upgrade"
-                    element = { token && user ? < Upgrade /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/payment"
-                    element = { token && user ? < Payment /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/agprofile"
-                    element = { token && user ? < Agprofile /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/details"
-                    element = { token && user ? < UserDetail /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/feedback"
-                    element = { token && user ? < FeedbackForm /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/aboutus"
-                    element = { token && user ? < About /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/preArrival"
-                    element = { token && user ? < PreArrival /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/membership"
-                    element = { token && user ? < Membership /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/payment"
-                    element = { token && user ? < Payment /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/signup"
-                    element = { token && user ? < Signup /> : < Signup /> }
-                />
-                <Route 
-                    exact 
-                    path = "/contactus"
-                    element = { token && user ? < ContactUs /> : < ContactUs /> }
-                />                
-
-                <Route
-                    exact
-                    path = "/"
-                    element = {
-                        token && user ? (
-                            user.accountType === "public" ? ( 
-                                <Homepage />
-                            ) : ( 
-                                <ADBoard />
-                            )
-                        ) : ( 
-                            <Login />
-                        )
-                    }
-                />
-
-                <Route 
-                    exact
-                    path = "/agent-list"
-                    element = { token && user ? < AgentList /> : < Login /> }
-                /> 
-                <Route 
-                    exact 
-                    path = "/agent-board"
-                    element = { token && user ? < ADBoard /> : < Login /> }
-                /> 
-                <Route 
-                    path = "/tasks"
-                    element = {token && user ? < StudentTask /> : < Login /> }
-                />
-
-                {/* <Route
-                            path="/student"
-                            element={
-                                token && user ? (
-                                <Student />
-                                ) : (
-                                <Login />
-                                )
-                            }
-                            /> */}
-                </Routes>
-            </BrowserRouter>
-        </>
+    const { user, token } = useContext(Context);
+  
+    return (
+      <>
+        <ReactNotifications />
+        <BrowserRouter>
+        <Navbar />
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/login" element={token && user ? <Login /> : <Login />} />
+            <Route path="/signup" element={token && user ? <Signup /> : <Signup />} />
+            <Route path="/aboutus" element={token && user ? <About /> : <Login />} />
+            <Route path="/contactus" element={token && user ? <ContactUs /> : <ContactUs />} />
+  
+            {/* Private Routes */}
+            <Route
+              path="/"
+              element={
+                token && user ? (
+                  user.accountType === "public" ? <Homepage /> : <ADBoard />
+                ) : (
+                  <Login />
+                )
+              }
+            />
+            <Route path="/upgrade" element={token && user ? <Upgrade /> : <Login />} />
+            <Route path="/payment" element={token && user ? <Payment /> : <Login />} />
+            <Route path="/agprofile" element={token && user ? <Agprofile /> : <Login />} />
+            <Route path="/details" element={token && user ? <UserDetail /> : <Login />} />
+            <Route path="/feedback" element={token && user ? <FeedbackForm /> : <Login />} />
+            <Route path="/preArrival" element={token && user ? <PreArrival /> : <Login />} />
+            <Route path="/membership" element={token && user ? <Membership /> : <Login />} />
+  
+            {/* Other Private Routes */}
+            <Route path="/agent-list" element={token && user ? <AgentList /> : <Login />} />
+            <Route path="/agent-board" element={token && user ? <ADBoard /> : <Login />} />
+            <Route path="/tasks" element={token && user ? <StudentTask /> : <Login />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </>
     );
-}
-
-export default App;
+  }
+  
+  export default App;
+  

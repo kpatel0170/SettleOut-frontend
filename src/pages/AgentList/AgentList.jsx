@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import commonApi from "../../api/common";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../../components/Navbar";
 
 
 const AgentsList = () => {
@@ -38,7 +37,6 @@ const AgentsList = () => {
 
   return (
     <>
-      <Navbar />
 
       <div className="grid grid-rows pl-9 pr-9 ml-5 mr-5 pt-20">
         {agentList.map((agent) => (
@@ -73,3 +71,5 @@ const AgentsList = () => {
 };
 
 export default AgentsList;
+
+

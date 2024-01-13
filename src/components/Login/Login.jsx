@@ -5,8 +5,6 @@ import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 import Toast from "../../api/toast";
 import "react-notifications-component/dist/theme.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 function Login() {
   const { dispatch } = useContext(Context);
@@ -73,7 +71,6 @@ function Login() {
   // Render the Login form
   return (
     <>
-      <Navbar />
       <div className="container">
         <main className="login-container">
           <div className="heading-signup">
@@ -138,7 +135,6 @@ function Login() {
           <br></br>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -1,12 +1,9 @@
 import React from "react";
 import "./About.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 function About({ featured = false, children = null }) {
   return (
     <>
-      <Navbar />
       <div class="Apage">
         <div id="parallax-world-of-ugg">
           <section>
@@ -127,7 +124,6 @@ function About({ featured = false, children = null }) {
           </section>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -4,8 +4,6 @@ import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 import commonApi from "../../api/common";
 import Toast from "../../api/toast";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
 
 const Signup = () => {
   // Use the useState hook to create "username", "email", "password", and "confirmPassword" state variables
@@ -97,7 +95,6 @@ const Signup = () => {
 
   return (
     <>
-      <Navbar />
       <div className="container">
         <main className="signup-container">
           <div className="heading-signup">
@@ -206,8 +203,6 @@ const Signup = () => {
           <br></br>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 };

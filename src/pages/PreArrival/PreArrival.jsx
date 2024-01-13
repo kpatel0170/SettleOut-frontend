@@ -5,8 +5,6 @@ import { Context } from "../../context/Context";
 import { useNavigate } from "react-router";
 import commonApi from "../../api/common";
 import Toast from "../../api/toast";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 const PreArrival = () => {
   const [Ticket, setTicket] = useState("");
@@ -75,7 +73,6 @@ const PreArrival = () => {
 
   return (
     <>
-      <Navbar />
       <div className="prearrival-box">
         <div className="prearr-head">Pre-Arrival Form</div>
         <form onSubmit={handleSubmit}>
@@ -156,7 +153,6 @@ const PreArrival = () => {
           </button>
         </form>
       </div>
-      <Footer />
     </>
   );
 };

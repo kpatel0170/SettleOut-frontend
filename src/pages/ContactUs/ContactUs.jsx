@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router";
 import Toast from "../../api/toast";
-import Navbar from "../../components/Navbar";
 
 
 
@@ -17,7 +16,6 @@ function ContactUs  ({ featured = false, children = null }){
     
     return (
     <>
-    <Navbar />
     <div className="flex flex-col items-center justify-center mt-40">
       <h1 className="text-3xl font-bold mb-4">Contact Us</h1>
       <form className="w-full max-w-md bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>

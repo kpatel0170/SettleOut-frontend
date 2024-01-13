@@ -1,58 +1,45 @@
-import React, { useState } from 'react'
-import Navbar from '../../components/Navbar'
-import { useNavigate, useLocation } from "react-router-dom";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 
+const Agprofile = () => {
+  const { state } = useLocation();
+  const agent = state.user;
 
-const Agprofile = (user) => {
-    const { state } = useLocation();
-    const [agent, setAgent] = useState(state.user);
-    return (
-        <div>
-            <Navbar />
-            <div>
-                <header style={{fontSize: "2em", display: "flex", alignItems: "center", justifyContent: "center"}}>
-                    Agent Profile
-                </header>
-            </div>
-            <div style={{ maxWidth: "80%", marginLeft: "10%", marginTop: "5%", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-                <h2 style={{ fontSize: "1.5em", fontWeight: "500" }}>
-                    Name: {agent.firstName} {agent.lastName}
-                </h2>
-                <div style={{ display: "flex" }}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>
-                        About:
-                    </h2>
-                    <p style={{ fontSize: "1.5em" }}>{agent.bio}</p>
-                </div>
-                <div style={{ display: "flex" }}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>
-                        Home Country:
-                    </h2>
-                    <p style={{ fontSize: "1.5em" }}>{agent.homeCountry}</p>
-                </div>
-                <p style={{ fontSize: "1.5em", fontWeight: "500" }}>
-                    Verified: <b>{agent.isPhoneVerified ? "Yes" : "No"}</b>
-                </p>
-                <div style={{ display: "flex" }}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "2px" }}>
-                        Education:
-                    </h2>
-                    <p style={{ fontSize: "1.5em" }}>
-                        Major: {agent.major},
-                        Year: {agent.year}
-                    </p>
-                </div>
-                <div style={{display: "flex"}}>
-                    <h2 style={{ fontWeight: "500", fontSize: "1.5em", marginRight: "5px" }}>
-                        Rating:
-                    </h2>
-                    <p style={{ fontSize: "1.5em" }}>
-                        <b style={{ color: "#FACC15" }}>{agent.ratings}</b>
-                    </p>
-                </div>
-            </div>
+  return (
+    <div>
+      <div className="text-center mt-8">
+        <h1 className="text-4xl font-bold text-gray-800">Agent Profile</h1>
+      </div>
+      <div className="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+        <h2 className="text-xl font-semibold mb-4 text-gray-700">
+          Name: {agent.firstName} {agent.lastName}
+        </h2>
+        <div className="mb-4">
+          <h2 className="font-semibold text-xl mb-2 text-gray-700">About:</h2>
+          <p className="text-xl text-gray-800">{agent.bio}</p>
         </div>
-    )
-}
+        <div className="mb-4">
+          <h2 className="font-semibold text-xl mb-2 text-gray-700">Home Country:</h2>
+          <p className="text-xl text-gray-800">{agent.homeCountry}</p>
+        </div>
+        <p className="text-xl font-semibold mb-4 text-gray-700">
+          Verified: <span className="font-bold text-green-500">{agent.isPhoneVerified ? 'Yes' : 'No'}</span>
+        </p>
+        <div className="mb-4">
+          <h2 className="font-semibold text-xl mb-2 text-gray-700">Education:</h2>
+          <p className="text-xl text-gray-800">
+            Major: {agent.major}, Year: {agent.year}
+          </p>
+        </div>
+        <div>
+          <h2 className="font-semibold text-xl mb-2 text-gray-700">Rating:</h2>
+          <p className="text-xl">
+            <span className="font-bold text-yellow-500">{agent.ratings}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Agprofile
+export default Agprofile;

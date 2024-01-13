@@ -2,7 +2,6 @@ import React from 'react';
 import './FeedbackForm.css';
 import { useNavigate } from "react-router";
 import Toast from "../../api/toast";
-import Navbar from "../../components/Navbar";
 
 function FeedbackForm  ({ featured = false, children = null }){
     const navigate = useNavigate();
@@ -13,7 +12,6 @@ function FeedbackForm  ({ featured = false, children = null }){
     }
     return (
     <>
-    <Navbar />
     <div className="wrapper">
         <h2>Feedback Form</h2>
         <div id="error_message"></div>

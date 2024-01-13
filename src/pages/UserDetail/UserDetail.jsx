@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./UserDetail.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 import commonApi from "../../api/common";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +47,6 @@ function UserDetail() {
 
   return (
     <>
-      <Navbar />
       <div className="container">
         <main className="container">
           <form className="details-form">
@@ -144,7 +141,6 @@ function UserDetail() {
         </main>
       </div>
 
-      <Footer />
     </>
   );
 }

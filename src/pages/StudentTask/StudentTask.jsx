@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar";
 import commonApi from "../../api/common";
 import { useLocation } from "react-router-dom";
 
@@ -92,7 +91,6 @@ export default function StudentTask() {
 
   return (
     <>
-      <Navbar />
       <div>
         <div
           className="shadow-md"

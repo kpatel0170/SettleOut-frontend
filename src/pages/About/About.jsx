@@ -1,5 +1,5 @@
 import React from "react";
-import "./About.css";
+// import "./About.css";
 
 function About({ featured = false, children = null }) {
   return (
@@ -50,12 +50,12 @@ function About({ featured = false, children = null }) {
             <div class="block">
               <p>
                 <span class="first-character ny">S</span>askatchewan is a
-                Canadian province that borders with the United States of America in the south.
-                Grassland covers its southern plains, and to the north are the
-                rugged rocks of the Canadian Shield plateau, coniferous forests,
-                rivers and lakes. Regina, the provincial capital, is home to the
-                Royal Saskatchewan Museum, with exhibits on natural history and
-                the people of Canada’s First Nations.
+                Canadian province that borders with the United States of America
+                in the south. Grassland covers its southern plains, and to the
+                north are the rugged rocks of the Canadian Shield plateau,
+                coniferous forests, rivers and lakes. Regina, the provincial
+                capital, is home to the Royal Saskatchewan Museum, with exhibits
+                on natural history and the people of Canada’s First Nations.
               </p>
               <p class="line-break margin-top-10"></p>
               <p class="margin-top-10">

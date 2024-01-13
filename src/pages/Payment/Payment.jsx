@@ -1,4 +1,4 @@
-import "./Payment.css";
+// import "./Payment.css";
 
 import React, { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
@@ -10,7 +10,7 @@ function Payment() {
   const [card, setCard] = useState({
     cardno: "",
     cardtype: "far fa-credit-card",
-    expirydt: "",
+    expirydt: ""
   });
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -26,12 +26,12 @@ function Payment() {
         number: card.cardno,
         exp_month: card.expirydt.replace(/\//g, "").substring(0, 2),
         exp_year: card.expirydt.replace(/\//g, "").substring(2, 4),
-        cvc: cvv,
-      },
+        cvc: cvv
+      }
     };
     await commonApi({
       action: "createTransaction",
-      data: data,
+      data: data
     })
       .then(({ DATA = {}, MESSAGE }) => {
         Toast.success("Payment Submitted Sucessfully");
@@ -46,7 +46,7 @@ function Payment() {
     setCard({
       ...card,
       cardno: e.target.value,
-      cardtype: cartype_new,
+      cardtype: cartype_new
     });
   };
   const cardnumber = (inputtxt) => {
@@ -95,82 +95,108 @@ function Payment() {
   const onChangeExp = (e) => {
     setCard({
       ...card,
-      expirydt: e.target.value,
+      expirydt: e.target.value
     });
   };
 
   return (
-    <>
-      <div className="cardetails-wrapper">
-        <div className="cardetails-payment">
-          <div className="carddetails-head">Payment Details</div>
-
-          <div className="cardetails-form">
-            <div className="cardetails-card cardetails-space cardetails-icon-relative">
-              <label className="cardetails-label">Card Number:</label>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+        <div className="text-2xl font-bold mb-4">Payment Details</div>
+        <form className="space-y-4">
+          <div className="relative">
+            <label
+              htmlFor="cardNumber"
+              className="text-sm font-medium text-gray-700"
+            >
+              Card Number:
+            </label>
+            <input
+              type="text"
+              id="cardNumber"
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              placeholder="XXXX-XXXX-XXXX-XXXX"
+              data-mask="0000 0000 0000 0000"
+              value={card.cardno}
+              maxLength={16}
+              onChange={onChange}
+              onKeyPress={(event) => {
+                if (!/[0-9]/.test(event.key)) {
+                  event.preventDefault();
+                }
+              }}
+            />
+            <i className={card.cardtype} id="cardtype"></i>
+          </div>
+          <div className="flex space-x-4">
+            <div className="relative flex-1">
+              <label
+                htmlFor="expiryDate"
+                className="text-sm font-medium text-gray-700"
+              >
+                Expiry date:
+              </label>
               <input
                 type="text"
-                className="cardetails-input"
-                data-mask="0000 0000 0000 0000"
-                maxLength={16}
-                placeholder="XXXX-XXXX-XXXX-XXXX"
-                value={card.cardno}
-                onChange={onChange}
+                id="expiryDate"
+                name="expiryDate"
+                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                placeholder="mm/yy"
+                onChange={onChangeExp}
+                value={expriy_format(card.expirydt)}
+              />
+              <i className="far fa-calendar-alt absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+            </div>
+            <div className="relative flex-1">
+              <label
+                htmlFor="cvv"
+                className="text-sm font-medium text-gray-700"
+              >
+                CVV:
+              </label>
+              <input
+                type="password"
+                id="cvv"
+                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                placeholder="000"
+                maxLength="3"
+                pattern="[0-9][0-9][0-9]"
                 onKeyPress={(event) => {
                   if (!/[0-9]/.test(event.key)) {
                     event.preventDefault();
                   }
                 }}
+                onChange={(e) => setCVV(e.target.value)}
+                value={cvv}
               />
-              <i className={card.cardtype} id="cardtype"></i>
-            </div>
-
-            <div className="cardetails-card-grp cardetails-space">
-              <div className="cardetails-card-item cardetails-icon-relative">
-                <label className="cardetails-label">Expiry date:</label>
-
-                <input
-                  type="text"
-                  name="expiry-data"
-                  className="cardetails-input"
-                  placeholder="mm/yy"
-                  onChange={onChangeExp}
-                  value={expriy_format(card.expirydt)}
-                />
-                <i className="far fa-calendar-alt"></i>
-              </div>
-              <div className="cardetails-card-item cardetails-icon-relative">
-                <label className="cardetails-label">CVV:</label>
-                <input
-                  type="password"
-                  className="cardetails-input"
-                  data-mask="000"
-                  placeholder="000"
-                  maxLength="3"
-                  pattern="[0-9][0-9][0-9]"
-                  onKeyPress={(event) => {
-                    if (!/[0-9]/.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                  onChange={(e) => setCVV(e.target.value)}
-                  value={cvv}
-                />
-                <i className="fas fa-lock"></i>
-              </div>
-            </div>
-            <div className="cardetails-card cardetails-space cardetails-icon-relative">
-              <label className="cardetails-label">Name on Card:</label>
-              <input type="text" className="cardetails-input" placeholder="" />
-              <i className="fas fa-user"></i>
-            </div>
-            <div className="cardetails-btn" onClick={handlePayment}>
-              Pay
+              <i className="fas fa-lock absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
             </div>
           </div>
-        </div>
+          <div className="relative">
+            <label
+              htmlFor="cardHolder"
+              className="text-sm font-medium text-gray-700"
+            >
+              Name on Card:
+            </label>
+            <input
+              type="text"
+              id="cardHolder"
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              placeholder=""
+            />
+            <i className="fas fa-user absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          </div>
+          <button
+            type="button"
+            className="w-full px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600"
+            onClick={handlePayment}
+          >
+            Pay
+          </button>
+        </form>
       </div>
-    </>
+    </div>
   );
 }
 

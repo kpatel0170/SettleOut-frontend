@@ -13,7 +13,7 @@ function Cards() {
       try {
         const { DATA = {} } = await commonApi({
           action: "findMembership",
-          data: {},
+          data: {}
         });
         setPlans(DATA.data);
       } catch (error) {
@@ -30,8 +30,8 @@ function Cards() {
         state: {
           agentId: state.agentId,
           membershipId: id,
-          amount: amount,
-        },
+          amount: amount
+        }
       });
     } catch (error) {
       console.error(error);

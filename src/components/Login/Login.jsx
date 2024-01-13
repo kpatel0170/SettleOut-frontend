@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
-import "./Login.css";
-import commonApi from "../../api/common";
-import { Context } from "../../context/Context";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { Context } from "../../context/Context";
+import commonApi from "../../api/common";
 import Toast from "../../api/toast";
-import "react-notifications-component/dist/theme.css";
 
 function Login() {
   const { dispatch } = useContext(Context);
   const navigate = useNavigate();
-  // Use the useState hook to create state variables for the form fields and errors
-  const [email, setUsername] = useState("");
+
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
@@ -36,106 +34,112 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    validateForm();
-
-    if (Object.keys(errors).length === 0) {
-      await commonApi({
-        action: "login",
-        data: {
-          email: email,
-          password: password,
-        },
-      })
-        .then(({ DATA = {}, MESSAGE }) => {
-          let { token, ...data } = DATA;
-          dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
-          Toast.success(MESSAGE);
-          navigate("/");
-        })
-        .catch((error) => {
-          dispatch({ type: "LOGIN_FAILURE" });
-          if (
-            error.response &&
-            error.response.data &&
-            error.response.data.DATA
-          ) {
-            if (error.response.data.DATA === "email") {
-              setErrors({ email: error.response.data.MESSAGE });
-            }
+    if (validateForm()) {
+      try {
+        const { DATA = {}, MESSAGE } = await commonApi({
+          action: "login",
+          data: {
+            email: email,
+            password: password
           }
-          console.error(error);
         });
+
+        let { token, ...data } = DATA;
+        dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
+        Toast.success(MESSAGE);
+        navigate("/");
+      } catch (error) {
+        dispatch({ type: "LOGIN_FAILURE" });
+
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.DATA === "email"
+        ) {
+          setErrors({ email: error.response.data.MESSAGE });
+        }
+
+        console.error(error);
+      }
     }
   };
 
-  // Render the Login form
   return (
-    <>
-      <div className="container">
-        <main className="login-container">
-          <div className="heading-signup">
-          Login to access your Account <span className="custom-dot">.</span>
-          </div>
-          <p className="text-mute">
-            Not a Member? <a href="/signup">Sign Up</a>
+    <section className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="max-w-lg w-full bg-white p-8 rounded-md shadow-lg">
+        <div className="text-center mb-6">
+          <h3 className="text-3xl font-bold text-gray-800">
+            Sign in to your account
+          </h3>
+          <p className="text-gray-500">
+            Login for a faster checkout experience.
           </p>
-          <form onSubmit={handleSubmit} className="login-form">
-            <label htmlFor="email" className="login-label">
-              Email:
+        </div>
+
+        <hr className="my-4 border-t border-gray-300" />
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="email" className="block text-sm text-gray-600 mb-2">
+              Email
             </label>
             <input
               type="text"
               name="email"
               value={email}
-              onChange={(event) => setUsername(event.target.value)}
-              className={`login-input ${errors.username ? "input-error" : ""}`}
-            />
-            <div
-              className={`error-message ${
-                errors.username ? "visible" : "hidden"
+              onChange={(event) => setEmail(event.target.value)}
+              className={`w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary ${
+                errors.email ? "border-red-500" : ""
               }`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm text-gray-600 mb-2"
             >
-              {errors.username}
-            </div>
-            <label htmlFor="password" className="login-label">
-              Password:
+              Password
             </label>
             <input
               type="password"
               name="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className={`login-input ${errors.password ? "input-error" : ""}`}
-            />
-            <div
-              className={`error-message ${
-                errors.password ? "visible" : "hidden"
+              className={`w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary ${
+                errors.password ? "border-red-500" : ""
               }`}
-            >
-              {errors.password}
-            </div>
-            <button type="submit" className="login-button">
-              Login
-            </button>
-            <br />
-            <p className="text-mute">
-              Not a member? <a href="/signup">Sign Up</a>
-            </p>
-          </form>
-        </main>
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
+          </div>
 
-        <div className="welcome-container">
-          <h1 className="heading-secondary">
-            Welcome to{" "}
-            <span className="lg">
-              SettleOut! <br></br>
-            </span>
-            <span> One Stop Navigator for Settling in Regina.</span>{" "}
-          </h1>
-          <br></br>
-        </div>
+          <div className="text-right">
+            <a
+              href="#0"
+              className="text-sm font-medium text-primary hover:underline"
+            >
+              Forgot Password?
+            </a>
+          </div>
+
+          <button className="w-full flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white duration-300 hover:bg-primary/90">
+            Sign in
+          </button>
+        </form>
+
+        <p className="text-center mt-4 text-sm text-gray-600">
+          Don’t have an account?{" "}
+          <a href="/signup" className="text-primary hover:underline">
+            Sign up
+          </a>
+        </p>
       </div>
-    </>
+    </section>
   );
 }
 

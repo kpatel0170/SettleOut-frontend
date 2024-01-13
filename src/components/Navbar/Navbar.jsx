@@ -2,63 +2,69 @@ import React, { useContext } from "react";
 import { Context } from "../../context/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 import Toast from "../../api/toast";
-import "./Navbar.css";
-
-// .Navbuttons a {
-//   margin: 10px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   color: #4f55c4;
-//   padding: 10px;
-//   padding-top: 0;
-//   font-weight: bold;
-//   font-size: 15px;
-// }
-
 
 const Navbar = () => {
   const { user, dispatch, token } = useContext(Context);
   const navigate = useNavigate();
   const location = useLocation();
   const pathName = location.pathname;
+
   const handleLogout = async () => {
     localStorage.clear();
     dispatch({ type: "LOGOUT" });
     Toast.success("You have been successfully logged out");
     navigate("/login");
   };
+
   return (
-    <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <div>
+    <div className="bg-gray-200 font-bold p-4">
+      <div className="flex items-center justify-between">
         <img
-          className="navbarimg"
-          style={{ width: "200px", marginLeft: "20px" }}
+          className="h-8"
           src="https://cdn.discordapp.com/attachments/1063578363505152081/1084705078012813372/settleoutLogo.png"
           alt="Logo"
         />
-      </div>
-      <div>
-        <ul className="Navbuttons" style={{ display: "flex" }}>
+        <ul className="flex space-x-4">
           {user && (
             <>
               {user.accountType === "public" && (
-                <a href="/upgrade">Become an Agent</a>
+                <li>
+                  <a href="/upgrade" className="hover:text-gray-300">
+                    Become an Agent
+                  </a>
+                </li>
               )}
-              <a href="/aboutus">About Us</a>
-              {/* <a href="">
-                Contact Us
-              </a> */}
-              <a href="" onClick={handleLogout}>
-                Logout
-              </a>
+              <li>
+                <a href="/aboutus" className="hover:text-gray-300">
+                  About Us
+                </a>
+              </li>
+              {/* Uncomment the line below if you have a Contact Us page */}
+              {/* <li><a href="/contactus" className="hover:text-gray-300">Contact Us</a></li> */}
+              <li>
+                <a
+                  href="#"
+                  onClick={handleLogout}
+                  className="hover:text-gray-300"
+                >
+                  Logout
+                </a>
+              </li>
             </>
           )}
-          {!user && !token && pathName != "/signup" && (
-            <a href="/signup">Sign Up</a>
+          {!user && !token && pathName !== "/signup" && (
+            <li>
+              <a href="/signup" className="hover:text-gray-300">
+                Sign Up
+              </a>
+            </li>
           )}
-          {!user && !token && pathName != "/login" && (
-            <a href="/login">Login</a>
+          {!user && !token && pathName !== "/login" && (
+            <li>
+              <a href="/login" className="hover:text-gray-300">
+                Login
+              </a>
+            </li>
           )}
         </ul>
       </div>

@@ -1,59 +1,52 @@
-import React, { useState, useEffect } from "react";
-import "./Footer.css";
+import React from "react";
+// import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="footer-distributed">
-      <div className="footer-left">
-        <h3>
-          Settle<span>Out</span>
-        </h3>
-
-        <p className="footer-links">
-          <a href="/" className="link-1">
-            Home &nbsp;
-          </a>
-
-          <a href="/Blog">Blog &nbsp;</a>
-
-          <a href="#">Careers &nbsp;</a>
-
-          <a href="/aboutus">About Us &nbsp;</a>
-
-          <a href="#">FAQ &nbsp;</a>
-
-          <a href="/contactus">Contact Us &nbsp;</a>
-        </p>
-
-        <p className="footer-company-name">SettleOut © 2023</p>
-      </div>
-
-      <div className="footer-center">
-        <div>
-          <i className="fa fa-map-marker"></i>
-          <p>
-            <span>University of Regina</span> Regina, Canada
-          </p>
+    <footer className="bg-gray-200 text-black body-font">
+      <div className="container mx-auto py-8 px-5 flex flex-wrap flex-col sm:flex-row">
+        <div className="flex-grow flex flex-wrap">
+          <div className="w-full mb-10 md:mb-0">
+            <h2 className="text-2xl font-bold text-black mb-3">
+              Settle<span className="text-indigo-500">Out</span>
+            </h2>
+            <p className="leading-relaxed text-gray-600">
+              At SettleOut, we are committed to providing top-quality services
+              to our valued customers. Our team of agents is dedicated to
+              ensuring that you receive the highest level of service. Thank you
+              for choosing SettleOut, and we look forward to serving you!
+            </p>
+            <p className="mt-4 text-gray-700">© 2023 SettleOut</p>
+          </div>
+          <div className="lg:w-1/4 md:w-1/2 w-full md:pl-10 md:py-6">
+            <h2 className="text-xl font-bold text-black mb-3">Links</h2>
+            <nav className="list-none">
+              <li className="mb-2">
+                <a href="/" className="text-black hover:text-indigo-500">
+                  Home
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/blog" className="text-black hover:text-indigo-500">
+                  Blog
+                </a>
+              </li>
+              <li className="mb-2">
+                <a href="/aboutus" className="text-black hover:text-indigo-500">
+                  About Us
+                </a>
+              </li>
+              <li className="mb-2">
+                <a
+                  href="/contactus"
+                  className="text-black hover:text-indigo-500"
+                >
+                  Contact Us
+                </a>
+              </li>
+            </nav>
+          </div>
         </div>
-
-        <div>
-          <i className="fa fa-phone"></i>
-          <p>+1.555.555.5555</p>
-        </div>
-
-        <div>
-          <i className="fa fa-envelope"></i>
-          <p>
-            <a href="mailto:contactsettleout@gmail.com">contactsettleout@gmail.com</a>
-          </p>
-        </div>
-      </div>
-
-      <div className="footer-right">
-        <p className="footer-company-about">
-          <span>About the company</span>
-          At SettleOut, we are committed to providing top-quality services to our valued customers. Our team of agents is dedicated to ensuring that you receive the highest level of service. Thank you for choosing SettleOut and we look forward to serving you!
-        </p>
       </div>
     </footer>
   );

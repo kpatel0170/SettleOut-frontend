@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import commonApi from "../../api/common";
 import { useNavigate } from "react-router-dom";
-
 const AList = () => {
   const [agentList, setAgentList] = useState([]);
   const navigate = useNavigate();

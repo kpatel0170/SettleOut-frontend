@@ -1,9 +1,8 @@
 import React from "react";
-// import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 text-black body-font">
+    <footer className="bg-gray-200 text-black body-font mt-auto">
       <div className="container mx-auto py-8 px-5 flex flex-wrap flex-col sm:flex-row">
         <div className="flex-grow flex flex-wrap">
           <div className="w-full mb-10 md:mb-0">

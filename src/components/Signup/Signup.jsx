@@ -1,14 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
-import "./Signup.css";
-import { Context } from "../../context/Context";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { Context } from "../../context/Context";
 import commonApi from "../../api/common";
 import Toast from "../../api/toast";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
 
 const Signup = () => {
-  // Use the useState hook to create "username", "email", "password", and "confirmPassword" state variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -25,10 +21,10 @@ const Signup = () => {
     const newErrors = {};
 
     if (firstName.length === 0) {
-      newErrors.firstName = "FirstName is required";
+      newErrors.firstName = "First Name is required";
     }
     if (lastName.length === 0) {
-      newErrors.lastName = "LastName is required";
+      newErrors.lastName = "Last Name is required";
     }
     if (phone.length === 0) {
       newErrors.phone = "Phone is required";
@@ -61,93 +57,111 @@ const Signup = () => {
     validateForm();
 
     if (Object.keys(errors).length === 0) {
-      await commonApi({
-        action: "register",
-        data: {
-          firstName: firstName,
-          lastName: lastName,
-          email: email,
-          phone: {
-            phone: phone,
-          },
-          password: password,
-        },
-      })
-        .then(({ DATA = {}, MESSAGE }) => {
-          let { token, ...data } = DATA;
-          dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
-          Toast.success(MESSAGE);
-          navigate("/");
-        })
-        .catch((error) => {
-          dispatch({ type: "LOGIN_FAILURE" });
-          if (
-            error.response &&
-            error.response.data &&
-            error.response.data.DATA
-          ) {
-            if (error.response.data.DATA === "email") {
-              setErrors({ email: error.response.data.MESSAGE });
-            }
+      try {
+        const { DATA = {}, MESSAGE } = await commonApi({
+          action: "register",
+          data: {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: {
+              phone: phone
+            },
+            password: password
           }
-          console.error(error);
         });
+
+        let { token, ...data } = DATA;
+        dispatch({ type: "LOGIN_SUCCESS", payload: data, token: token });
+        Toast.success(MESSAGE);
+        navigate("/");
+      } catch (error) {
+        dispatch({ type: "LOGIN_FAILURE" });
+
+        if (error.response && error.response.data && error.response.data.DATA) {
+          if (error.response.data.DATA === "email") {
+            setErrors({ email: error.response.data.MESSAGE });
+          }
+        }
+
+        console.error(error);
+      }
     }
   };
 
   return (
-    <>
-      <Navbar />
-      <div className="container">
-        <main className="signup-container">
-          <div className="heading-signup">
-            Create A New Account<span className="custom-dot">.</span>
-          </div>
-          <p className="text-mute">
-            Already A Member? <a href="/login">Log in</a>
+    <section className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="max-w-lg w-full bg-white p-8 rounded-md shadow-lg">
+        <div className="text-center mb-6">
+          <h3 className="text-3xl font-bold text-gray-800">
+            Create a New Account
+          </h3>
+          <p className="text-gray-500">
+            Already a Member?{" "}
+            <a href="/login" className="text-primary hover:underline">
+              Log in
+            </a>
           </p>
-          <form onSubmit={handleSubmit} className="signup-form">
-            <label htmlFor="firstName" className="signup-label">
-              First Name:
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label
+              htmlFor="firstName"
+              className="block text-sm text-gray-600 mb-2"
+            >
+              First Name
             </label>
             <input
               type="text"
               name="firstName"
               value={firstName}
               onChange={(event) => setFirstName(event.target.value)}
-              className="signup-input"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
             />
             {errors.firstName && (
-              <div className="signup-error">{errors.firstName}</div>
+              <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
             )}
+          </div>
 
-            <label htmlFor="lastName" className="signup-label">
-              Last Name:
+          <div>
+            <label
+              htmlFor="lastName"
+              className="block text-sm text-gray-600 mb-2"
+            >
+              Last Name
             </label>
             <input
               type="text"
               name="lastName"
               value={lastName}
               onChange={(event) => setLastName(event.target.value)}
-              className="signup-input"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
             />
             {errors.lastName && (
-              <div className="signup-error">{errors.lastName}</div>
+              <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
             )}
-            <label htmlFor="email" className="signup-label">
-              email:
+          </div>
+
+          <div>
+            <label htmlFor="email" className="block text-sm text-gray-600 mb-2">
+              Email
             </label>
             <input
               type="email"
               name="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="signup-input"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
             />
-            {errors.email && <div className="signup-error">{errors.email}</div>}
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
 
-            <label htmlFor="phone" className="signup-label">
-              Phone Number:
+          <div>
+            <label htmlFor="phone" className="block text-sm text-gray-600 mb-2">
+              Phone Number
             </label>
             <input
               type="text"
@@ -155,60 +169,66 @@ const Signup = () => {
               value={phone}
               maxLength={10}
               onChange={(event) => setPhone(event.target.value)}
-              className="signup-input"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
             />
-            {errors.phone && <div className="signup-error">{errors.phone}</div>}
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+            )}
+          </div>
 
-            <label htmlFor="password" className="signup-label">
-              Password:
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm text-gray-600 mb-2"
+            >
+              Password
             </label>
             <input
               type="password"
               name="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="signup-input"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
             />
             {errors.password && (
-              <div className="signup-error">{errors.password}</div>
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
             )}
-            <label htmlFor="confirmPassword" className="signup-label">
-              Confirm Password:
+          </div>
+
+          <div>
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm text-gray-600 mb-2"
+            >
+              Confirm Password
             </label>
             <input
               type="password"
               name="confirmPassword"
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
-              className="signup-input"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
             />
             {errors.confirmPassword && (
-              <div className="signup-error">{errors.confirmPassword}</div>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.confirmPassword}
+              </p>
             )}
-            <button type="submit" className="signup-button">
-              Sign Up
-            </button>
-            <br />
+          </div>
 
-            <p className="text-mute">
-              Already A Member? <a href="/login">Log in</a>
-            </p>
-          </form>
-        </main>
-        <div className="welcome-container">
-          <h1 className="heading-secondary">
-            Welcome to{" "}
-            <span className="lg">
-              SettleOut! <br></br>
-            </span>
-            <span> One Stop Navigator for Settling in Regina.</span>{" "}
-          </h1>
-          <br></br>
-        </div>
+          <button className="w-full flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white duration-300 hover:bg-primary/90">
+            Sign Up
+          </button>
+
+          <p className="text-center mt-4 text-sm text-gray-600">
+            Already a Member?{" "}
+            <a href="/login" className="text-primary hover:underline">
+              Log in
+            </a>
+          </p>
+        </form>
       </div>
-
-      <Footer />
-    </>
+    </section>
   );
 };
 

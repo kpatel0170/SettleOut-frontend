@@ -1,67 +1,72 @@
 import React from "react";
-import "./About.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
-function About({ featured = false, children = null }) {
+const About = ({ featured = false, children = null }) => {
   return (
-    <>
-      <Navbar />
-      <div class="Apage">
-        <div id="parallax-world-of-ugg">
-          <section>
-            <div class="title">
-              <h1>Settle Out</h1>
-              <h3>Settle in with ease and spread your wings!</h3>
-            </div>
-          </section>
+    <div className="Apage">
+      <div id="parallax-world-of-ugg">
+        {/* Section 1 */}
+        <section className="bg-gradient-to-b from-blue-800 via-blue-700 to-blue-900 text-white py-20">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4">Settle Out</h1>
+            <h3 className="text-lg">
+              Settle in with ease and spread your wings!
+            </h3>
+          </div>
+        </section>
 
-          <section>
-            <div class="parallax-one">
-              <h2>Newcomers to Canada</h2>
-            </div>
-          </section>
+        {/* Section 2 */}
+        <section className="bg-gray-100 py-16">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-800">
+              Newcomers to Canada
+            </h2>
+          </div>
+        </section>
 
-          <section>
-            <div class="block">
-              <p>
-                <span class="first-character sc">C</span>anada is a country in
-                North America. Its ten provinces and three territories extend
+        {/* Section 3 */}
+        <section className="py-16">
+          <div className="container mx-auto">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <p className="text-gray-700">
+                <span className="first-character sc">C</span>anada is a country
+                in North America. Its ten provinces and three territories extend
                 from the Atlantic Ocean to the Pacific Ocean and northward into
                 the Arctic Ocean, covering over 9.98 million square kilometres,
-                making it the world's second-largest country by total area.{" "}
+                making it the world's second-largest country by total area.
               </p>
-              <p class="line-break margin-top-10"></p>
-              <p class="margin-top-10">
+              <p className="mt-6 text-gray-700">
                 There are currently 388,782 international students enrolled in
                 higher education in Canada. Of the total 388,782 international
                 students in Canada, 39.4% (153,360) are enrolled in colleges,
                 and 60.5% (235,419) in universities. In the last five years, the
                 number of international students had a significant increase of
-                69.8%, from 228,924 to 388,782.{" "}
+                69.8%, from 228,924 to 388,782.
               </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section>
-            <div class="parallax-two">
-              <h2>Saskatchewan</h2>
-            </div>
-          </section>
+        {/* Section 4 */}
+        <section className="bg-gray-100 py-16">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-800">Saskatchewan</h2>
+          </div>
+        </section>
 
-          <section>
-            <div class="block">
-              <p>
-                <span class="first-character ny">S</span>askatchewan is a
-                Canadian province that borders with the United States of America in the south.
-                Grassland covers its southern plains, and to the north are the
-                rugged rocks of the Canadian Shield plateau, coniferous forests,
-                rivers and lakes. Regina, the provincial capital, is home to the
-                Royal Saskatchewan Museum, with exhibits on natural history and
-                the people of Canada’s First Nations.
+        {/* Section 5 */}
+        <section className="py-16">
+          <div className="container mx-auto">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <p className="text-gray-700">
+                <span className="first-character ny">S</span>askatchewan is a
+                Canadian province that borders with the United States of America
+                in the south. Grassland covers its southern plains, and to the
+                north are the rugged rocks of the Canadian Shield plateau,
+                coniferous forests, rivers and lakes. Regina, the provincial
+                capital, is home to the Royal Saskatchewan Museum, with exhibits
+                on natural history and the people of Canada’s First Nations.
               </p>
-              <p class="line-break margin-top-10"></p>
-              <p class="margin-top-10">
+              <p className="mt-6 text-gray-700">
                 The most important division of the land in Saskatchewan is
                 between the northern one-third of the province, which is part of
                 the Canadian Shield, and the plains, which cover the southern
@@ -79,18 +84,24 @@ function About({ featured = false, children = null }) {
                 feet (213 metres), is in the extreme northwest.
               </p>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <section>
-            <div class="parallax-three">
-              <h2>SettleOut helps you everywhere</h2>
-            </div>
-          </section>
+        {/* Section 6 */}
+        <section className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900 text-white py-20">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold">
+              SettleOut helps you everywhere
+            </h2>
+          </div>
+        </section>
 
-          <section>
-            <div class="block">
-              <p>
-                <span class="first-character atw">T</span>he problem of
+        {/* Section 7 */}
+        <section className="py-16">
+          <div className="container mx-auto">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <p className="text-gray-700">
+                <span className="first-character atw">T</span>he problem of
                 adjustment and integration for international students moving to
                 a new city or country is a significant concern. The process of
                 settling into a new environment can be challenging as they must
@@ -101,21 +112,9 @@ function About({ featured = false, children = null }) {
                 ability to establish a sense of security and stability. These
                 challenges can lead to feelings of isolation and anxiety, which
                 can negatively impact academic performance and overall
-                well-being. Our project, ”SettleOut: Settle in with ease, spread
-                your wings” aims to address these issues by providing support
-                and resources to international students as they navigate the
-                challenges of settling into a new environment. Our platform
-                allows students to search for and connect with alumni and
-                current students who serve as agents to provide guidance and
-                support in navigating the challenges of adjusting to a new
-                culture, finding housing, transportation, and other practical
-                needs. Additionally, the website will provide resources and
-                information to help students prepare for their move, such as
-                information on visa requirements, cost of living, and cultural
-                customs.
+                well-being.
               </p>
-              <p class="line-break margin-top-10"></p>
-              <p class="margin-top-10">
+              <p className="mt-6 text-gray-700">
                 SettleOut is a unique and innovative platform that addresses a
                 significant need for international students. With the
                 development of a user-friendly website, a database of agents,
@@ -124,16 +123,11 @@ function About({ featured = false, children = null }) {
                 the international student community.
               </p>
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
-      <Footer />
-    </>
+    </div>
   );
-}
-
-//   About.propTypes = {
-//     featured: PropTypes.bool,
-//   };
+};
 
 export default About;

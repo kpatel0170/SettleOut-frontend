@@ -19,9 +19,7 @@ const commonApi = ({ parameters = [], action, module = "", data, config }) => {
     });
   }
 
-  return Promise.reject(
-    new Error("Oops!, Wrong URL")
-  );
+  return Promise.reject(new Error("Oops!, Wrong URL"));
 };
 
 export default commonApi;

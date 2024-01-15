@@ -15,7 +15,7 @@ const config = {
   }
 };
 const addToast = (title, message) => {
-  Store.addNotification ({
+  Store.addNotification({
     title,
     message,
     ...config,

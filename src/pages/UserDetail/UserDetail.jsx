@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./UserDetail.css";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+// import "./UserDetail.css";
 
 import commonApi from "../../api/common";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +13,7 @@ function UserDetail() {
     async function fetchUserDetails() {
       try {
         const response = await commonApi({
-          action: "getUserDetails",
+          action: "getUserDetails"
         });
         setUser(response.DATA);
       } catch (error) {
@@ -35,7 +33,7 @@ function UserDetail() {
     const phone = event.target.elements.phone.value;
     await commonApi({
       action: "updateProfile",
-      data: { firstName, lastName, email, dob, phone },
+      data: { firstName, lastName, email, dob, phone }
     })
       .then(({ DATA = {}, MESSAGE }) => {
         Toast.success("Profile updated successfully.");
@@ -49,7 +47,6 @@ function UserDetail() {
 
   return (
     <>
-      <Navbar />
       <div className="container">
         <main className="container">
           <form className="details-form">
@@ -143,8 +140,6 @@ function UserDetail() {
           </form>
         </main>
       </div>
-
-      <Footer />
     </>
   );
 }

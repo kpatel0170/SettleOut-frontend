@@ -2,27 +2,26 @@ import React, { useState, useEffect } from "react";
 import Card from "../../components/MembershipCard";
 import commonApi from "../../api/common";
 import { useNavigate, useLocation } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 
 function Cards() {
   const { state } = useLocation();
   const [plans, setPlans] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
-    const call = async () => {
-      await commonApi({
-        action: "findMembership",
-        data: {},
-      })
-        .then(({ DATA = {}, MESSAGE }) => {
-          setPlans(DATA.data);
-        })
-        .catch((error) => {
-          console.error(error);
+    const fetchData = async () => {
+      try {
+        const { DATA = {} } = await commonApi({
+          action: "findMembership",
+          data: {}
         });
+        setPlans(DATA.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
-    call();
+
+    fetchData();
   }, []);
 
   const handleSubmit = (id, amount) => {
@@ -31,19 +30,19 @@ function Cards() {
         state: {
           agentId: state.agentId,
           membershipId: id,
-          amount: amount,
-        },
+          amount: amount
+        }
       });
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <>
-      <Navbar />
-      <div className="h-full flex flex-col mt-10">
+      <div className="min-h-screen flex flex-col mt-10">
         <main className="flex-1 px-6 py-12 lg:flex lg:justify-center lg:items-center lg:w-full mt-10 mb-20">
-          <div className="grid gap-2 md:gap-12 lg:gap-16 xl:gap-2 lg:grid-cols-3 pb-15">
+          <div className="grid gap-8 md:gap-12 lg:gap-16 xl:gap-8 lg:grid-cols-1 xl:grid-cols-3">
             {plans.map((plan) => (
               <div
                 key={plan._id}
@@ -59,8 +58,8 @@ function Cards() {
           </div>
         </main>
       </div>
-      <Footer />
     </>
   );
 }
+
 export default Cards;

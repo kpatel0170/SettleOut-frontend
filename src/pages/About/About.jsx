@@ -8,14 +8,18 @@ const About = ({ featured = false, children = null }) => {
         <section className="bg-gradient-to-b from-blue-800 via-blue-700 to-blue-900 text-white py-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Settle Out</h1>
-            <h3 className="text-lg">Settle in with ease and spread your wings!</h3>
+            <h3 className="text-lg">
+              Settle in with ease and spread your wings!
+            </h3>
           </div>
         </section>
 
         {/* Section 2 */}
         <section className="bg-gray-100 py-16">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800">Newcomers to Canada</h2>
+            <h2 className="text-3xl font-bold text-gray-800">
+              Newcomers to Canada
+            </h2>
           </div>
         </section>
 
@@ -24,8 +28,8 @@ const About = ({ featured = false, children = null }) => {
           <div className="container mx-auto">
             <div className="bg-white p-8 rounded-lg shadow-md">
               <p className="text-gray-700">
-                <span className="first-character sc">C</span>anada is a country in
-                North America. Its ten provinces and three territories extend
+                <span className="first-character sc">C</span>anada is a country
+                in North America. Its ten provinces and three territories extend
                 from the Atlantic Ocean to the Pacific Ocean and northward into
                 the Arctic Ocean, covering over 9.98 million square kilometres,
                 making it the world's second-largest country by total area.
@@ -86,7 +90,9 @@ const About = ({ featured = false, children = null }) => {
         {/* Section 6 */}
         <section className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-900 text-white py-20">
           <div className="text-center">
-            <h2 className="text-3xl font-bold">SettleOut helps you everywhere</h2>
+            <h2 className="text-3xl font-bold">
+              SettleOut helps you everywhere
+            </h2>
           </div>
         </section>
 

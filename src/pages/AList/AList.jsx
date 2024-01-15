@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import commonApi from "../../api/common";
 import { useNavigate } from "react-router-dom";
+import AProfile from "./ViewProfileModal";
+
 const AList = () => {
   const [agentList, setAgentList] = useState([]);
+  const [selectedAgent, setSelectedAgent] = useState(null); // To track the selected agent
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+
   useEffect(() => {
     const list = async () => {
       await commonApi({
@@ -29,12 +34,18 @@ const AList = () => {
   };
 
   const handleViewProfile = (agent) => {
-    navigate("/aprofile", { state: { user: agent } });
+    setSelectedAgent(agent);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedAgent(null);
   };
 
   return (
     <>
-      <div className="grid grid-rows pl-9 pr-9 ml-5 mr-5 pt-20 bg-gray-300">
+      <div className="grid grid-rows pl-9 pr-9 ml-5 mr-5 pt-10 bg-gray-300">
         {agentList.map((agent) => (
           <div
             key={agent.id}
@@ -56,13 +67,13 @@ const AList = () => {
               <div className="flex space-x-4">
                 <button
                   onClick={() => handleViewProfile(agent)}
-                  className="bg-blue-500 text-white px-3 py-2 rounded"
+                  className="bg-gray-500 text-white px-3 py-2 rounded"
                 >
                   View Profile
                 </button>
                 <button
                   onClick={() => handleSelectAgent(agent._id)}
-                  className="bg-green-500 text-white px-3 py-2 rounded"
+                  className="bg-blue-500 text-white px-3 py-2 rounded"
                 >
                   Select Agent
                 </button>
@@ -71,6 +82,9 @@ const AList = () => {
           </div>
         ))}
       </div>
+
+      {/* Modal */}
+      {isModalOpen && <AProfile agent={selectedAgent} onClose={closeModal} />}
     </>
   );
 };

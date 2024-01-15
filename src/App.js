@@ -21,7 +21,6 @@ import ADBoard from "./pages/ABoard";
 import FeedbackForm from "./pages/FeedbackForm";
 import StudentTask from "./pages/ATasks";
 import ContactUs from "./pages/ContactUs";
-import AProfile from "./pages/AProfile/AProfile";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 
@@ -82,10 +81,6 @@ function App() {
               <Route
                 path="/payment"
                 element={token && user ? <Payment /> : <Login />}
-              />
-              <Route
-                path="/aprofile"
-                element={token && user ? <AProfile /> : <Login />}
               />
               <Route
                 path="/details"

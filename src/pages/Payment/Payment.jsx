@@ -189,7 +189,7 @@ function Payment() {
           </div>
           <button
             type="button"
-            className="w-full px-4 py-2 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600"
+            className="w-full px-4 py-2 bg-black text-white rounded-md focus:outline-none hover:bg-blue-600"
             onClick={handlePayment}
           >
             Pay

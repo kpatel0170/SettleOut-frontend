@@ -1,55 +1,98 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import Toast from "../../api/toast";
+// import { useNavigate } from "react-router-dom";
+// import Toast from "../../api/toast";
+
+// const ContactUs = () => {
+//   const navigate = useNavigate();
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     Toast.success("We will get back to you ASAP!");
+//     navigate("/");
+//   };
+
+// import NewsLatterBox from "./NewsLatterBox";
 
 const ContactUs = () => {
-  const navigate = useNavigate();
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    Toast.success("We will get back to you ASAP!");
-    navigate("/");
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full">
-        <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <input
-              type="text"
-              placeholder="Name"
-              id="name"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
-            />
-          </div>
-          <div className="mb-4">
-            <input
-              type="email"
-              placeholder="Email"
-              id="email"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
-            />
-          </div>
-          <div className="mb-6">
-            <textarea
-              placeholder="Your Message"
-              id="message"
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary resize-none"
-            ></textarea>
-          </div>
-          <div className="text-center">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300"
+    <section id="contact" className="overflow-hidden py-16 md:py-20 lg:py-28">
+      <div className="container">
+        <div className="-mx-4 flex flex-wrap">
+          <div className="w-full px-4 lg:w-7/12 xl:w-8/12">
+            <div
+              className="wow fadeInUp shadow-three dark:bg-gray-800 mb-12 rounded-sm bg-white px-8 py-11 sm:p-[55px] lg:mb-5 lg:px-8 xl:p-[55px]"
+              data-wow-delay=".15s
+                "
             >
-              Send Message
-            </button>
+              <h2 className="mb-3 text-2xl font-bold text-black dark:text-white sm:text-3xl lg:text-2xl xl:text-3xl">
+                Need Help? Open a Ticket
+              </h2>
+              <p className="mb-12 text-base font-medium dark:text-white">
+                Our support team will get back to you ASAP via email.
+              </p>
+              <form>
+                <div className="-mx-4 flex flex-wrap">
+                  <div className="w-full px-4 md:w-1/2">
+                    <div className="mb-8">
+                      <label
+                        htmlFor="name"
+                        className="mb-3 block text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Enter your name"
+                        className="border-stroke dark:text-white dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full px-4 md:w-1/2">
+                    <div className="mb-8">
+                      <label
+                        htmlFor="email"
+                        className="mb-3 block text-sm font-medium text-gray-800 dark:text-white"
+                      >
+                        Your Email
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        className="border-stroke dark:text-white dark:shadow-two w-full rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full px-4">
+                    <div className="mb-8">
+                      <label
+                        htmlFor="message"
+                        className="mb-3 block text-sm font-medium text-gray-900 dark:text-white"
+                      >
+                        Your Message
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={5}
+                        placeholder="Enter your Message"
+                        className="border-stroke dark:text-white dark:shadow-two w-full resize-none rounded-sm border bg-[#f8f8f8] px-6 py-3 text-base text-body-color outline-none focus:border-primary dark:border-transparent dark:bg-[#2C303B] dark:focus:border-primary dark:focus:shadow-none"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="w-full px-4">
+                    <button className="shadow-submit dark:shadow-submit-dark rounded-sm bg-gray-800 dark:bg-gray-300 px-9 py-4 text-base font-medium text-white dark:text-gray-900 duration-300 hover:bg-gray-700">
+                      Submit Ticket
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+          {/* <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
+              <NewsLatterBox />
+            </div> */}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

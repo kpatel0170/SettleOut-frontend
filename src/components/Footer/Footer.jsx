@@ -3,12 +3,12 @@ import React from "react";
 const LinksSection = ({ title, links }) => (
   <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-8 md:mb-0">
     <div className="mb-12 lg:mb-16">
-      <h2 className="mb-5 text-xl font-bold text-black">{title}</h2>
+      <h2 className="mb-5 text-xl font-bold dark:text-white">{title}</h2>
       <ul>
         {links.map((link, index) => (
           <li key={index}>
             <a href={link.path}>
-              <a className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary">
+              <a className="mb-4 inline-block text-base dark:text-white duration-300 hover:text-gray-700">
                 {link.name}
               </a>
             </a>
@@ -23,7 +23,7 @@ const SocialLink = ({ href, icon }) => (
   <a
     href={href}
     aria-label={`social-link-${icon}`}
-    className="dark:text-body-color-dark text-body-color duration-300 hover:text-primary dark:hover:text-primary"
+    className="dark:text-white text-black duration-300 hover:text-gray-700 dark:hover:text-gray-300"
   >
     {icon === "facebook" && (
       <svg width="19" height="14" viewBox="0 0 9 18" className="fill-current">
@@ -54,17 +54,17 @@ const SocialLink = ({ href, icon }) => (
 const Footer = () => {
   return (
     <>
-      <footer className="bg-transparent pt-16 md:pt-20 lg:pt-24 p-5">
+      <footer className="bg-transparent dark:bg-gray-800 pt-16 md:pt-20 lg:pt-24 p-5">
         <div className="container mx-auto flex flex-wrap justify-between">
           <div className="w-full mb-10 md:mb-10">
             <div className="mb-5">
               <a
                 href="/"
-                className="text-3xl font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"
+                className="text-3xl font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline"
               >
                 SettleOut
               </a>
-              <p className="mt-4 text-body-color leading-relaxed">
+              <p className="mt-4 leading-relaxed dark:text-white">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
                 lobortis.
               </p>
@@ -108,7 +108,7 @@ const Footer = () => {
 
         {/* Footer bottom section */}
         <div className="py-8 text-center">
-          <p className="text-base text-body-color">
+          <p className="text-base dark:text-white">
             © 2023 SettleOut. All rights reserved.
           </p>
         </div>

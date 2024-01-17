@@ -1,4 +1,5 @@
 import React from "react";
+import Pricing from "./Pricing";
 
 function Homepage({ featured = false, children = null }) {
   return (
@@ -58,6 +59,8 @@ function Homepage({ featured = false, children = null }) {
           </a>
         </div>
       </div>
+
+      <Pricing />
 
       {/* Featured Job Opportunity Section */}
       <div className="p-8">

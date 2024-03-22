@@ -60,7 +60,7 @@ const AList = () => {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-8 bg-gray-100 dark:bg-gray-800">
+        <div className="grid grid-cols-1 gap-1 p-5  mx-auto lg:px-[170px] bg-gray-100 dark:bg-gray-800">
           {agentList.map((agent) => (
             <div
               key={agent.id}

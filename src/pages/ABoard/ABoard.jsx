@@ -41,13 +41,18 @@ const ABoard = () => {
   }, [user._id]);
 
   return (
-    <div className="min-h-screen bg-gray-100 px-5">
+    <div className="min-h-screen px-5">
       <div className="container mx-auto py-12">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 p-5  mx-auto lg:px-[170px]">
           {studentList.length > 0 ? (
             studentList.map(({ _id, userId }) => (
-              <div key={_id} className="bg-white p-6 rounded-md shadow-md">
-                <h2 className="text-xl font-bold mb-2">{userId.fullName}</h2>
+              <div
+                key={_id}
+                className="dark:bg-slate-500 p-6 rounded-md shadow-md dark:text-gray-300"
+              >
+                <h2 className="text-xl font-bold mb-2 dark:text-gray-100">
+                  {userId.fullName}
+                </h2>
                 <p className="mb-4">
                   Arrival Date:{" "}
                   <strong>{userId?.demographics?.arrivalDate}</strong>

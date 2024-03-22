@@ -15,10 +15,10 @@ function MembershipCard({
 }) {
   return (
     <div
-      className={`cursor-pointer m-4 rounded-xl shadow-xl bg-white text-black dark:bg-gray-800 border ${
+      className={`cursor-pointer shadow-xl text-black dark:bg-gray-800 dark:text-white ${
         featured
-          ? "border-indigo-600 border-2 relative z-10"
-          : "border border-opacity-10"
+          ? "border-indigo-600 border rounded-xl relative"
+          : "border border-opacity-10 rounded-xl"
       }`}
       style={{ paddingTop: featured ? "2rem" : "0" }}
     >
@@ -30,7 +30,7 @@ function MembershipCard({
       )}
 
       {/* Card header */}
-      <div className="py-12 px-6 border-b-2 border-gray-200 dark:border-gray-700">
+      <div className="py-8 px-6 ">
         <p className="text-3xl font-semibold text-center mb-4">{name}</p>
         <div className="flex items-center justify-center">
           <div className="flex items-start">

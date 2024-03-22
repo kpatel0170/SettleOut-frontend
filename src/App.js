@@ -6,7 +6,6 @@ import "animate.css/animate.min.css";
 
 import { Context } from "./context/Context";
 
-import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import About from "./pages/About";
@@ -21,10 +20,8 @@ import ADBoard from "./pages/ABoard";
 import FeedbackForm from "./pages/FeedbackForm";
 import StudentTask from "./pages/ATasks";
 import ContactUs from "./pages/ContactUs";
-// import Navbar from "./components/Navbar/Navbar";
-import Footer from "./components/Footer/Footer";
 import Layout from "./layouts/main";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+// import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import ForgotPassword from "./components/Login/ForgotPassword";
 
 function App() {
@@ -45,7 +42,7 @@ function App() {
             {/* Public Routes */}
             <Route
               path="/login"
-              element={token && user ? <Login /> : <Login />}
+              element={token && user ? <Homepage /> : <Login />}
             />
             <Route
               path="/signup"
@@ -63,6 +60,7 @@ function App() {
               path="/contactus"
               element={token && user ? <ContactUs /> : <ContactUs />}
             />
+
 
             {/* Private Routes */}
             <Route
@@ -119,8 +117,7 @@ function App() {
               element={token && user ? <StudentTask /> : <Login />}
             />
           </Routes>
-          <Footer />
-          <ScrollToTop />
+          {/* <ScrollToTop /> */}
         </Layout>
       </BrowserRouter>
     </>

@@ -1,18 +1,21 @@
+// MainLayout.jsx
 import React from "react";
 import Navbar from "../components/Navbar";
-// import Sidebar from '../components/Header/Sidebar'
+import Footer from "../components/Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({children}) => {
   return (
-    <>
-      <div className="flex flex-auto h-auto">
-        {/* <Sidebar /> */}
-        <div className="grow">
-          <Navbar />
-          <div>{children}</div>
-        </div>
+    <div className="min-h-screen flex flex-wrap content-between bg-transparent dark:bg-gray-900">
+      <div className="w-full block">
+        <Navbar />
+        <main>
+          {children}
+        </main>
       </div>
-    </>
+      <div className="w-full block">
+        <Footer />
+      </div>
+    </div>
   );
 };
 

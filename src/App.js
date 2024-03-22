@@ -61,7 +61,6 @@ function App() {
               element={token && user ? <ContactUs /> : <ContactUs />}
             />
 
-
             {/* Private Routes */}
             <Route
               path="/"

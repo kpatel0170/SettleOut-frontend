@@ -90,13 +90,13 @@ const Signup = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="max-w-lg w-full bg-white p-8 rounded-md shadow-lg">
+    <section className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+      <div className="max-w-md w-full bg-white dark:bg-gray-700 p-8 rounded-md shadow-lg">
         <div className="text-center mb-6">
-          <h3 className="text-3xl font-bold text-gray-800">
+          <h3 className="text-3xl font-bold text-gray-800 dark:text-white">
             Create a New Account
           </h3>
-          <p className="text-gray-500">
+          <p className="text-gray-500 dark:text-gray-400">
             Already a Member?{" "}
             <a href="/login" className="text-primary hover:underline">
               Log in
@@ -105,46 +105,51 @@ const Signup = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label
-              htmlFor="firstName"
-              className="block text-sm text-gray-600 mb-2"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              name="firstName"
-              value={firstName}
-              onChange={(event) => setFirstName(event.target.value)}
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
-            />
-            {errors.firstName && (
-              <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
-            )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label
+                htmlFor="firstName"
+                className="block text-sm text-gray-600 dark:text-gray-300 mb-2"
+              >
+                First Name
+              </label>
+              <input
+                type="text"
+                name="firstName"
+                value={firstName}
+                onChange={(event) => setFirstName(event.target.value)}
+                className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-600 outline-none focus:border-primary dark:text-white"
+              />
+              {errors.firstName && (
+                <p className="text-red-500 text-sm mt-1">{errors.firstName}</p>
+              )}
+            </div>
+
+            <div>
+              <label
+                htmlFor="lastName"
+                className="block text-sm text-gray-600 dark:text-gray-300 mb-2"
+              >
+                Last Name
+              </label>
+              <input
+                type="text"
+                name="lastName"
+                value={lastName}
+                onChange={(event) => setLastName(event.target.value)}
+                className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-600 outline-none focus:border-primary dark:text-white"
+              />
+              {errors.lastName && (
+                <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
+              )}
+            </div>
           </div>
 
           <div>
             <label
-              htmlFor="lastName"
-              className="block text-sm text-gray-600 mb-2"
+              htmlFor="email"
+              className="block text-sm text-gray-600 dark:text-gray-300 mb-2"
             >
-              Last Name
-            </label>
-            <input
-              type="text"
-              name="lastName"
-              value={lastName}
-              onChange={(event) => setLastName(event.target.value)}
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
-            />
-            {errors.lastName && (
-              <p className="text-red-500 text-sm mt-1">{errors.lastName}</p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm text-gray-600 mb-2">
               Email
             </label>
             <input
@@ -152,7 +157,7 @@ const Signup = () => {
               name="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-600 outline-none focus:border-primary dark:text-white"
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email}</p>
@@ -160,7 +165,10 @@ const Signup = () => {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-sm text-gray-600 mb-2">
+            <label
+              htmlFor="phone"
+              className="block text-sm text-gray-600 dark:text-gray-300 mb-2"
+            >
               Phone Number
             </label>
             <input
@@ -169,7 +177,7 @@ const Signup = () => {
               value={phone}
               maxLength={10}
               onChange={(event) => setPhone(event.target.value)}
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-600 outline-none focus:border-primary dark:text-white"
             />
             {errors.phone && (
               <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
@@ -179,7 +187,7 @@ const Signup = () => {
           <div>
             <label
               htmlFor="password"
-              className="block text-sm text-gray-600 mb-2"
+              className="block text-sm text-gray-600 dark:text-gray-300 mb-2"
             >
               Password
             </label>
@@ -188,7 +196,7 @@ const Signup = () => {
               name="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-600 outline-none focus:border-primary dark:text-white"
             />
             {errors.password && (
               <p className="text-red-500 text-sm mt-1">{errors.password}</p>
@@ -198,7 +206,7 @@ const Signup = () => {
           <div>
             <label
               htmlFor="confirmPassword"
-              className="block text-sm text-gray-600 mb-2"
+              className="block text-sm text-gray-600 dark:text-gray-300 mb-2"
             >
               Confirm Password
             </label>
@@ -207,7 +215,7 @@ const Signup = () => {
               name="confirmPassword"
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
-              className="w-full px-4 py-2 border rounded-md bg-gray-50 outline-none focus:border-primary"
+              className="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-600 outline-none focus:border-primary dark:text-white"
             />
             {errors.confirmPassword && (
               <p className="text-red-500 text-sm mt-1">
@@ -216,11 +224,11 @@ const Signup = () => {
             )}
           </div>
 
-          <button className="w-full flex items-center justify-center rounded-md bg-black px-6 py-3 text-base font-medium text-white duration-300 hover:bg-primary/90">
+          <button className="w-full flex items-center justify-center rounded-md bg-black dark:bg-gray-800 px-6 py-3 text-base font-medium text-white duration-300 hover:bg-primary/90">
             Sign Up
           </button>
 
-          <p className="text-center mt-4 text-sm text-gray-600">
+          <p className="text-center mt-4 text-sm text-gray-600 dark:text-gray-400">
             Already a Member?{" "}
             <a href="/login" className="text-primary hover:underline">
               Log in

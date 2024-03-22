@@ -39,26 +39,17 @@ function Cards() {
   };
 
   return (
-    <>
-      <div className="min-h-screen flex flex-col mt-10">
-        <main className="flex-1 px-6 py-12 lg:flex lg:justify-center lg:items-center lg:w-full mt-10 mb-20">
-          <div className="grid gap-8 md:gap-12 lg:gap-16 xl:gap-8 lg:grid-cols-1 xl:grid-cols-3">
-            {plans.map((plan) => (
-              <div
-                key={plan._id}
-                className={`w-full max-w-lg mx-auto ${
-                  plan.featured
-                    ? "order-first lg:order-none lg:transform lg:scale-110 lg:z-10"
-                    : "lg:transform lg:scale-90"
-                }`}
-              >
-                <Card {...plan} handleSubmit={handleSubmit} />
-              </div>
-            ))}
-          </div>
-        </main>
-      </div>
-    </>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <main className=" lg:flex lg:justify-center lg:items-center py-10">
+        <div className="grid lg:grid-cols-1 xl:grid-cols-3 gap-4">
+          {plans.map((plan) => (
+            <div key={plan._id} className={`w-full max-w-lg mx-auto my-auto`}>
+              <Card {...plan} handleSubmit={handleSubmit} />
+            </div>
+          ))}
+        </div>
+      </main>
+    </div>
   );
 }
 

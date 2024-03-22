@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
-import { CheckIcon } from "@heroicons/react/solid";
+import { FaCheck } from "react-icons/fa6";
 import React from "react";
 
 function MembershipCard({
@@ -15,17 +15,22 @@ function MembershipCard({
 }) {
   return (
     <div
-      className={`cursor-pointer shadow-xl rounded-xl bg-white text-black border-indigo-600 ${featured ? "border-2 relative" : "border border-opacity-10"}`}
+      className={`cursor-pointer shadow-xl text-black dark:bg-gray-800 dark:text-white ${
+        featured
+          ? "border-indigo-600 border rounded-xl relative"
+          : "border border-opacity-10 rounded-xl"
+      }`}
+      style={{ paddingTop: featured ? "2rem" : "0" }}
     >
       {/* Emphasized header */}
       {featured && (
-        <span className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-indigo-600 rounded-full px-6 py-1 uppercase text-white text-sm font-semibold tracking-wide whitespace-nowrap">
+        <span className="absolute top-0 left-1/2 transform -translate-y-1/2 -translate-x-1/2 bg-indigo-600 rounded-full px-6 py-1 uppercase text-white text-sm font-semibold tracking-wide whitespace-nowrap z-20">
           Most popular
         </span>
       )}
 
       {/* Card header */}
-      <div className="py-12 px-6 border-b-2 border-gray-200">
+      <div className="py-8 px-6 ">
         <p className="text-3xl font-semibold text-center mb-4">{name}</p>
         <div className="flex items-center justify-center">
           <div className="flex items-start">
@@ -40,13 +45,15 @@ function MembershipCard({
       </div>
 
       {/* Card body */}
-      <div className="bg-gray-100 rounded-b-md p-6 sm:p-8 xl:p-12">
+      <div className="bg-gray-100 dark:bg-gray-900 p-6 sm:p-8 xl:p-12">
         {/* Features list */}
         <div className="mb-12">
           {services.map((feature, i) => (
             <div className="flex items-center mb-3" key={i}>
-              <CheckIcon className="w-6 h-6 mr-2 sm:mr-4 text-green-500 flex-shrink-0" />
-              <p className="text-gray-600 text-base sm:text-lg">{feature}</p>
+              <FaCheck className="w-6 h-6 mr-2 sm:mr-4 text-green-500 flex-shrink-0" />
+              <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg">
+                {feature}
+              </p>
             </div>
           ))}
         </div>

@@ -15,8 +15,8 @@ const AUpgrade = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full">
+    <div className="min-h-screen flex py-6 items-center justify-center">
+      <div className="p-8 rounded-md shadow-md max-w-md w-full bg-slate-400">
         <h2 className="text-3xl font-bold mb-6 text-center">
           Apply to Become an Agent
         </h2>

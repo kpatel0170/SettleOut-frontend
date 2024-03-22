@@ -65,7 +65,7 @@ const PreArrival = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+      <div className="w-full max-w-md p-8  bg-slate-400 rounded-lg shadow-lg">
         <div className="text-2xl font-bold mb-4">Pre-Arrival Form</div>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">

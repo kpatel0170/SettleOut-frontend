@@ -12,8 +12,8 @@ const FeedbackForm = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded-md shadow-md max-w-md w-full">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="bg-white dark:bg-slate-500 dark:text-gray-300 p-8 rounded-md shadow-md max-w-md w-full">
         <h2 className="text-3xl font-bold mb-6 text-center">Feedback Form</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">

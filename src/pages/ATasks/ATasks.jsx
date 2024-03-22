@@ -91,13 +91,15 @@ const ATasks = () => {
   }, [todos]);
 
   return (
-    <div className="bg-gray-100 min-h-screen py-5">
-      <div className="max-w-2xl mx-auto mt-8 p-4 bg-white shadow-md rounded-md mx-2">
+    <div className=" min-h-screen py-5">
+      <div className="max-w-2xl mx-auto mt-8 p-4 dark:bg-slate-500 dark:text-gray-300 shadow-md rounded-md mx-2">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="col-span-1">
-            <h2 className="text-xl font-bold mb-2">Name: {demo.fullName}</h2>
+            <h2 className="text-xl font-bold mb-4 dark:text-gray-100">
+              Name: {demo.fullName}
+            </h2>
             {todos.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="flex flex-col gap-1">
                 <p>Email: {demo.email}</p>
                 <p>Phone: {demo.phone?.phone}</p>
                 <p>INR number: {demo.demographics?.ticket}</p>
@@ -109,8 +111,10 @@ const ATasks = () => {
         </div>
       </div>
 
-      <div className="max-w-md mx-auto mt-8 p-4 bg-white shadow-md rounded-md">
-        <p className="text-center text-2xl font-bold mb-4">Tasks</p>
+      <div className="max-w-md mx-auto mt-8 p-4 dark:bg-slate-500 dark:text-gray-300 shadow-md rounded-md">
+        <p className="text-center text-2xl font-bold mb-4 dark:text-gray-100">
+          Tasks
+        </p>
 
         {todos.length === 0 && (
           <div className="text-center pb-8">

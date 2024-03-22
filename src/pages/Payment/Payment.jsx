@@ -101,20 +101,22 @@ function Payment() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
-        <div className="text-2xl font-bold mb-4">Payment Details</div>
+      <div className="w-full max-w-md p-8 dark:bg-slate-600 rounded-lg shadow-lg">
+        <div className="text-2xl font-bold mb-4  dark:text-gray-300">
+          Payment Details
+        </div>
         <form className="space-y-4">
           <div className="relative">
             <label
               htmlFor="cardNumber"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-400"
             >
               Card Number:
             </label>
             <input
               type="text"
               id="cardNumber"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300 dark:bg-slate-800 dark:text-gray-400"
               placeholder="XXXX-XXXX-XXXX-XXXX"
               data-mask="0000 0000 0000 0000"
               value={card.cardno}
@@ -132,7 +134,7 @@ function Payment() {
             <div className="relative flex-1">
               <label
                 htmlFor="expiryDate"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-gray-700  dark:text-gray-400"
               >
                 Expiry date:
               </label>
@@ -140,24 +142,24 @@ function Payment() {
                 type="text"
                 id="expiryDate"
                 name="expiryDate"
-                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300  dark:bg-slate-800 dark:text-gray-400"
                 placeholder="mm/yy"
                 onChange={onChangeExp}
                 value={expriy_format(card.expirydt)}
               />
-              <i className="far fa-calendar-alt absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              <i className="far fa-calendar-alt absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 "></i>
             </div>
             <div className="relative flex-1">
               <label
                 htmlFor="cvv"
-                className="text-sm font-medium text-gray-700"
+                className="text-sm font-medium text-gray-700  dark:text-gray-400"
               >
                 CVV:
               </label>
               <input
                 type="password"
                 id="cvv"
-                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300  dark:bg-slate-800 dark:text-gray-400"
                 placeholder="000"
                 maxLength="3"
                 pattern="[0-9][0-9][0-9]"
@@ -175,14 +177,14 @@ function Payment() {
           <div className="relative">
             <label
               htmlFor="cardHolder"
-              className="text-sm font-medium text-gray-700"
+              className="text-sm font-medium text-gray-700 dark:text-gray-400"
             >
               Name on Card:
             </label>
             <input
               type="text"
               id="cardHolder"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:ring focus:border-blue-300  dark:bg-slate-800 dark:text-gray-400"
               placeholder=""
             />
             <i className="fas fa-user absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>

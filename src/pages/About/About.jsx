@@ -5,7 +5,7 @@ const About = ({ featured = false, children = null }) => {
     <div className="Apage">
       <div id="parallax-world-of-ugg">
         {/* Section 1 */}
-        <section className="bg-gradient-to-b from-blue-800 via-blue-700 to-blue-900 text-white py-20">
+        <section className="bg-gradient-to-b from-blue-900 via-blue-700 to-stale-900  text-white py-20">
           <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">Settle Out</h1>
             <h3 className="text-lg">
@@ -15,9 +15,9 @@ const About = ({ featured = false, children = null }) => {
         </section>
 
         {/* Section 2 */}
-        <section className="bg-gray-100 py-16">
+        <section className="bg-gray-100 dark:bg-slate-600 py-16">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800">
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-300">
               Newcomers to Canada
             </h2>
           </div>
@@ -26,15 +26,15 @@ const About = ({ featured = false, children = null }) => {
         {/* Section 3 */}
         <section className="py-16">
           <div className="container mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-gray-700">
+            <div className="bg-white dark:bg-slate-500 p-8 rounded-lg shadow-md">
+              <p className="text-gray-700 dark:text-gray-300">
                 <span className="first-character sc">C</span>anada is a country
                 in North America. Its ten provinces and three territories extend
                 from the Atlantic Ocean to the Pacific Ocean and northward into
                 the Arctic Ocean, covering over 9.98 million square kilometres,
                 making it the world's second-largest country by total area.
               </p>
-              <p className="mt-6 text-gray-700">
+              <p className="mt-6 text-gray-700 dark:text-gray-300">
                 There are currently 388,782 international students enrolled in
                 higher education in Canada. Of the total 388,782 international
                 students in Canada, 39.4% (153,360) are enrolled in colleges,
@@ -47,17 +47,19 @@ const About = ({ featured = false, children = null }) => {
         </section>
 
         {/* Section 4 */}
-        <section className="bg-gray-100 py-16">
+        <section className="bg-gray-100 dark:bg-slate-600 py-16">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-gray-800">Saskatchewan</h2>
+            <h2 className="text-3xl font-bold text-gray-800  dark:text-gray-300">
+              Saskatchewan
+            </h2>
           </div>
         </section>
 
         {/* Section 5 */}
         <section className="py-16">
           <div className="container mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-gray-700">
+            <div className="bg-white dark:bg-slate-500 p-8 rounded-lg shadow-md">
+              <p className="text-gray-700  dark:text-gray-300">
                 <span className="first-character ny">S</span>askatchewan is a
                 Canadian province that borders with the United States of America
                 in the south. Grassland covers its southern plains, and to the
@@ -66,7 +68,7 @@ const About = ({ featured = false, children = null }) => {
                 capital, is home to the Royal Saskatchewan Museum, with exhibits
                 on natural history and the people of Canada’s First Nations.
               </p>
-              <p className="mt-6 text-gray-700">
+              <p className="mt-6 text-gray-700 dark:text-gray-300">
                 The most important division of the land in Saskatchewan is
                 between the northern one-third of the province, which is part of
                 the Canadian Shield, and the plains, which cover the southern
@@ -99,8 +101,8 @@ const About = ({ featured = false, children = null }) => {
         {/* Section 7 */}
         <section className="py-16">
           <div className="container mx-auto">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <p className="text-gray-700">
+            <div className="bg-white dark:bg-slate-500 p-8 rounded-lg shadow-md">
+              <p className="text-gray-700 dark:text-gray-300">
                 <span className="first-character atw">T</span>he problem of
                 adjustment and integration for international students moving to
                 a new city or country is a significant concern. The process of
@@ -114,7 +116,7 @@ const About = ({ featured = false, children = null }) => {
                 can negatively impact academic performance and overall
                 well-being.
               </p>
-              <p className="mt-6 text-gray-700">
+              <p className="mt-6 text-gray-700  dark:text-gray-300">
                 SettleOut is a unique and innovative platform that addresses a
                 significant need for international students. With the
                 development of a user-friendly website, a database of agents,
